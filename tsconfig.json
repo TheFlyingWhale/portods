@@ -17,6 +17,6 @@
         "suppressImplicitAnyIndexErrors": true,
         "allowSyntheticDefaultImports": true
     },
-    "include": ["src/components"],
+    "include": ["src/components", "postcss.config.js"],
     "exclude": ["node_modules", "lib", "src/App.tsx", "src/index.tsx", "public"]
 }
