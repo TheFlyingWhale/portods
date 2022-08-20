@@ -1,4 +1,4 @@
-import "./index.css";
+import "../index.css";
 
 //Form
 import Button from "./form/Button";
