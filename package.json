@@ -11,9 +11,10 @@
     "scripts": {
         "start": "react-scripts start",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "npm run build:esm && npm run build:cjs",
+        "build": "npm run build:esm && npm run build:cjs && npm run build:tailwindcss",
         "build:esm": "tsc",
-        "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+        "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+        "build:tailwindcss": "npx tailwindcss -i ./src/index.css -o ./lib/index.css"
     },
     "author": "Ole Walberg",
     "license": "ISC",
@@ -39,5 +40,6 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    }
+    },
+    "dependencies": {}
 }
