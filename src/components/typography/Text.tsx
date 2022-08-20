@@ -2,11 +2,11 @@ import React from "react";
 
 interface TextProps {
     children: React.ReactNode;
-    className: string;
+    className?: string;
 }
 
-const Text: React.FC<TextProps> = ({ children }) => {
-    return <p>{children}</p>;
+const Text: React.FC<TextProps> = ({ children, className }) => {
+    return <p className={className}>{children}</p>;
 };
 
 export default Text;
