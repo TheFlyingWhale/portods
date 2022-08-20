@@ -118,13 +118,13 @@ const Primary: React.FC<ButtonProps> = ({
         >
             <HStack className="justify-center items-center gap-2 whitespace-nowrap">
                 {leftIcon && (
-                    <IconContainer fill="fill-neutral-100" size={15}>
+                    <IconContainer className="fill-neutral-100" size={15}>
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer fill="fill-neutral-100" size={15}>
+                    <IconContainer className="fill-neutral-100" size={15}>
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -217,13 +217,13 @@ const Secondary: React.FC<ButtonProps> = ({
         >
             <HStack className="justify-center items-center gap-2 whitespace-nowrap">
                 {leftIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -350,13 +350,13 @@ const Outlined: React.FC<ButtonProps> = ({
         >
             <HStack className="justify-center items-center gap-2 whitespace-nowrap">
                 {leftIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -449,13 +449,13 @@ const Ghost: React.FC<ButtonProps> = ({
         >
             <HStack className="justify-center items-center gap-2 whitespace-nowrap">
                 {leftIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -548,13 +548,13 @@ const Round: React.FC<ButtonProps> = ({
         >
             <HStack className="justify-center items-center gap-2 whitespace-nowrap">
                 {leftIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer fill={getIconFill(color)} size={15}>
+                    <IconContainer className={getIconFill(color)} size={15}>
                         {rightIcon}
                     </IconContainer>
                 )}

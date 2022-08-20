@@ -2,13 +2,13 @@ import React from "react";
 
 interface IconProps {
     children: React.ReactNode;
-    fill?: string;
+    className?: string;
     size?: number;
 }
 
 const IconContainer: React.FC<IconProps> = ({
     children,
-    fill = "fill-neutral-700",
+    className = "fill-neutral-700",
     size = 25,
 }) => {
     return (
@@ -18,7 +18,7 @@ const IconContainer: React.FC<IconProps> = ({
             viewBox={`0 0 15 15`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={fill}
+            className={className}
         >
             {children}
         </svg>
