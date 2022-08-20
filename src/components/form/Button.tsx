@@ -3,6 +3,11 @@ import { twMerge } from "tailwind-merge";
 import IconContainer from "../icons/IconContainer";
 import { HStack, Text } from "../";
 
+/* To do:
+    rewrite to handle different sizes
+    smarter way to handle colors and variants
+ */
+
 interface ButtonProps {
     children: React.ReactNode;
     className?: string;
@@ -122,7 +127,7 @@ const Primary: React.FC<ButtonProps> = ({
                         {leftIcon}
                     </IconContainer>
                 )}
-                <Text className="leading-none mt-1">{children}</Text>
+                <Text className={`leading-none mt-1`}>{children}</Text>
                 {rightIcon && (
                     <IconContainer className="fill-neutral-100" size={15}>
                         {rightIcon}

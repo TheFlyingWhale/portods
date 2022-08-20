@@ -1,5 +1,6 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import { TEXT_COLOR } from "./utils";
 
 const FONT_FAMILY = "font-primary";
 const FONT_WEIGHT = "font-bold";
@@ -19,7 +20,7 @@ const Heading: React.FC<HeadingProps> = ({
         return (
             <h6
                 className={twMerge(
-                    `text-base ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                    `text-base ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
                 )}
             >
                 {children}
@@ -30,7 +31,7 @@ const Heading: React.FC<HeadingProps> = ({
         return (
             <h5
                 className={twMerge(
-                    `text-lg ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                    `text-lg ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
                 )}
             >
                 {children}
@@ -41,7 +42,7 @@ const Heading: React.FC<HeadingProps> = ({
         return (
             <h4
                 className={twMerge(
-                    `text-xl ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                    `text-xl ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
                 )}
             >
                 {children}
@@ -52,7 +53,7 @@ const Heading: React.FC<HeadingProps> = ({
         return (
             <h3
                 className={twMerge(
-                    `text-2xl ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                    `text-2xl ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
                 )}
             >
                 {children}
@@ -63,7 +64,7 @@ const Heading: React.FC<HeadingProps> = ({
         return (
             <h2
                 className={twMerge(
-                    `text-3xl ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                    `text-3xl ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
                 )}
             >
                 {children}
@@ -73,7 +74,7 @@ const Heading: React.FC<HeadingProps> = ({
     return (
         <h1
             className={twMerge(
-                `text-4xl ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
+                `text-4xl ${TEXT_COLOR} ${FONT_WEIGHT} ${FONT_FAMILY} ${className}`
             )}
         >
             {children}
