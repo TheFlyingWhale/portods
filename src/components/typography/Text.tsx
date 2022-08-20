@@ -1,4 +1,9 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
+
+/* To do:
+    add default color from utils
+*/
 
 interface TextProps {
     children: React.ReactNode;
@@ -6,7 +11,7 @@ interface TextProps {
 }
 
 const Text: React.FC<TextProps> = ({ children, className }) => {
-    return <p className={className}>{children}</p>;
+    return <p className={twMerge(` ${className}`)}>{children}</p>;
 };
 
 export default Text;
