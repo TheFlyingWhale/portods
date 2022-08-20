@@ -8,8 +8,9 @@ interface ButtonProps {
     color?: "neutral" | "blue" | "green" | "red" | "orange";
 }
 
-const PADDING = "px-4 py-2";
+const PADDING = "px-4 pt-2 pb-1.5";
 const BORDER_RADIUS = "rounded-md";
+const FONT = "font-primary font-medium";
 
 const Button: React.FC<ButtonProps> = ({
     children,
@@ -79,7 +80,7 @@ const Primary: React.FC<ButtonProps> = ({
             className={twMerge(
                 `${getColorClasses(
                     color
-                )} ${PADDING} ${BORDER_RADIUS} ${className}`
+                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
             {children}
@@ -112,7 +113,7 @@ const Secondary: React.FC<ButtonProps> = ({
             className={twMerge(
                 `${getColorClasses(
                     color
-                )} ${PADDING} ${BORDER_RADIUS} ${className}`
+                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
             {children}
@@ -179,7 +180,7 @@ const Outlined: React.FC<ButtonProps> = ({
             className={twMerge(
                 `${getColorClasses(
                     color
-                )} ${PADDING} ${BORDER_RADIUS} ${className}`
+                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
             {children}
@@ -212,7 +213,7 @@ const Ghost: React.FC<ButtonProps> = ({
             className={twMerge(
                 `${getColorClasses(
                     color
-                )} ${PADDING} ${BORDER_RADIUS} ${className}`
+                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
             {children}
@@ -242,7 +243,9 @@ const Round: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(color)} ${PADDING} rounded-full ${className}`
+                `${getColorClasses(
+                    color
+                )} ${PADDING} ${FONT} rounded-full ${className}`
             )}
         >
             {children}
