@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import IconContainer from "../icons/IconContainer";
+import { HStack, Text } from "../";
 
 interface ButtonProps {
     children: React.ReactNode;
     className?: string;
     variant?: "primary" | "secondary" | "outlined" | "ghost" | "round";
     color?: "neutral" | "blue" | "green" | "red" | "orange";
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
 }
 
-const PADDING = "px-4 pt-2 pb-1.5";
+const PADDING = "px-4 pt-2.5 pb-3";
 const BORDER_RADIUS = "rounded-md";
 const FONT = "font-primary font-medium";
 
@@ -17,37 +21,64 @@ const Button: React.FC<ButtonProps> = ({
     className,
     variant,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
     if (variant === "secondary")
         return (
-            <Secondary className={className} color={color}>
+            <Secondary
+                leftIcon={leftIcon}
+                rightIcon={rightIcon}
+                className={className}
+                color={color}
+            >
                 {children}
             </Secondary>
         );
 
     if (variant === "outlined")
         return (
-            <Outlined className={className} color={color}>
+            <Outlined
+                leftIcon={leftIcon}
+                rightIcon={rightIcon}
+                className={className}
+                color={color}
+            >
                 {children}
             </Outlined>
         );
 
     if (variant === "ghost")
         return (
-            <Ghost className={className} color={color}>
+            <Ghost
+                leftIcon={leftIcon}
+                rightIcon={rightIcon}
+                className={className}
+                color={color}
+            >
                 {children}
             </Ghost>
         );
 
     if (variant === "round")
         return (
-            <Round className={className} color={color}>
+            <Round
+                leftIcon={leftIcon}
+                rightIcon={rightIcon}
+                className={className}
+                color={color}
+            >
                 {children}
             </Round>
         );
 
     return (
-        <Primary className={className} color={color}>
+        <Primary
+            leftIcon={leftIcon}
+            rightIcon={rightIcon}
+            className={className}
+            color={color}
+        >
             {children}
         </Primary>
     );
@@ -59,6 +90,8 @@ const Primary: React.FC<ButtonProps> = ({
     children,
     className,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
     const getColorClasses = (color: string) => {
         switch (color) {
@@ -83,7 +116,19 @@ const Primary: React.FC<ButtonProps> = ({
                 )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
-            {children}
+            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+                {leftIcon && (
+                    <IconContainer fill="fill-neutral-100" size={15}>
+                        {leftIcon}
+                    </IconContainer>
+                )}
+                <Text className="leading-none mt-1">{children}</Text>
+                {rightIcon && (
+                    <IconContainer fill="fill-neutral-100" size={15}>
+                        {rightIcon}
+                    </IconContainer>
+                )}
+            </HStack>
         </button>
     );
 };
@@ -92,7 +137,12 @@ const Secondary: React.FC<ButtonProps> = ({
     children,
     className,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
+    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
     const getColorClasses = (color: string) => {
         switch (color) {
             case "blue":
@@ -108,6 +158,51 @@ const Secondary: React.FC<ButtonProps> = ({
         }
     };
 
+    const getIconFill = (color: string) => {
+        switch (color) {
+            case "blue":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-blue-700",
+                    "fill-blue-700",
+                    "fill-blue-900"
+                );
+            case "green":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-green-800",
+                    "fill-green-800",
+                    "fill-green-900"
+                );
+            case "red":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-red-600",
+                    "fill-red-700",
+                    "fill-red-900"
+                );
+            case "orange":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-orange-800",
+                    "fill-orange-800",
+                    "fill-orange-900"
+                );
+            default:
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-neutral-800",
+                    "fill-neutral-900",
+                    "fill-neutral-900"
+                );
+        }
+    };
+
     return (
         <button
             className={twMerge(
@@ -115,8 +210,24 @@ const Secondary: React.FC<ButtonProps> = ({
                     color
                 )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
+            onMouseOver={() => setIsMouseOver(true)}
+            onMouseLeave={() => setIsMouseOver(false)}
+            onMouseDown={() => setIsMouseDown(true)}
+            onMouseUp={() => setIsMouseDown(false)}
         >
-            {children}
+            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+                {leftIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {leftIcon}
+                    </IconContainer>
+                )}
+                <Text className="leading-none mt-1">{children}</Text>
+                {rightIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {rightIcon}
+                    </IconContainer>
+                )}
+            </HStack>
         </button>
     );
 };
@@ -125,7 +236,12 @@ const Outlined: React.FC<ButtonProps> = ({
     children,
     className,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
+    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
     const getColorClasses = (color: string) => {
         switch (color) {
             case "blue": {
@@ -175,6 +291,51 @@ const Outlined: React.FC<ButtonProps> = ({
         }
     };
 
+    const getIconFill = (color: string) => {
+        switch (color) {
+            case "blue":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-blue-600",
+                    "fill-blue-700",
+                    "fill-blue-900"
+                );
+            case "green":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-green-800",
+                    "fill-green-800",
+                    "fill-green-900"
+                );
+            case "red":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-red-600",
+                    "fill-red-700",
+                    "fill-red-900"
+                );
+            case "orange":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-orange-700",
+                    "fill-orange-700",
+                    "fill-orange-900"
+                );
+            default:
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-neutral-700",
+                    "fill-neutral-700",
+                    "fill-neutral-900"
+                );
+        }
+    };
+
     return (
         <button
             className={twMerge(
@@ -182,8 +343,24 @@ const Outlined: React.FC<ButtonProps> = ({
                     color
                 )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
+            onMouseOver={() => setIsMouseOver(true)}
+            onMouseLeave={() => setIsMouseOver(false)}
+            onMouseDown={() => setIsMouseDown(true)}
+            onMouseUp={() => setIsMouseDown(false)}
         >
-            {children}
+            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+                {leftIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {leftIcon}
+                    </IconContainer>
+                )}
+                <Text className="leading-none mt-1">{children}</Text>
+                {rightIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {rightIcon}
+                    </IconContainer>
+                )}
+            </HStack>
         </button>
     );
 };
@@ -192,7 +369,12 @@ const Ghost: React.FC<ButtonProps> = ({
     children,
     className,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
+    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
     const getColorClasses = (color: string) => {
         switch (color) {
             case "blue":
@@ -208,6 +390,51 @@ const Ghost: React.FC<ButtonProps> = ({
         }
     };
 
+    const getIconFill = (color: string) => {
+        switch (color) {
+            case "blue":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-blue-500",
+                    "fill-blue-500",
+                    "fill-blue-700"
+                );
+            case "green":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-green-700",
+                    "fill-green-800",
+                    "fill-green-900"
+                );
+            case "red":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-red-500",
+                    "fill-red-700",
+                    "fill-red-900"
+                );
+            case "orange":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-orange-500",
+                    "fill-orange-700",
+                    "fill-orange-900"
+                );
+            default:
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-neutral-900",
+                    "fill-neutral-900",
+                    "fill-neutral-900"
+                );
+        }
+    };
+
     return (
         <button
             className={twMerge(
@@ -215,8 +442,24 @@ const Ghost: React.FC<ButtonProps> = ({
                     color
                 )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
+            onMouseOver={() => setIsMouseOver(true)}
+            onMouseLeave={() => setIsMouseOver(false)}
+            onMouseDown={() => setIsMouseDown(true)}
+            onMouseUp={() => setIsMouseDown(false)}
         >
-            {children}
+            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+                {leftIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {leftIcon}
+                    </IconContainer>
+                )}
+                <Text className="leading-none mt-1">{children}</Text>
+                {rightIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {rightIcon}
+                    </IconContainer>
+                )}
+            </HStack>
         </button>
     );
 };
@@ -225,7 +468,12 @@ const Round: React.FC<ButtonProps> = ({
     children,
     className,
     color = "neutral",
+    leftIcon,
+    rightIcon,
 }) => {
+    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
     const getColorClasses = (color: string) => {
         switch (color) {
             case "blue":
@@ -240,6 +488,52 @@ const Round: React.FC<ButtonProps> = ({
                 return "bg-neutral-800 text-neutral-100 hover:bg-neutral-500 active:bg-neutral-800";
         }
     };
+
+    const getIconFill = (color: string) => {
+        switch (color) {
+            case "blue":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-blue-50",
+                    "fill-blue-50",
+                    "fill-blue-50"
+                );
+            case "green":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-green-50",
+                    "fill-green-50",
+                    "fill-green-50"
+                );
+            case "red":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-red-50",
+                    "fill-red-50",
+                    "fill-red-50"
+                );
+            case "orange":
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-orange-50",
+                    "fill-orange-50",
+                    "fill-orange-50"
+                );
+            default:
+                return determineIconFill(
+                    isMouseOver,
+                    isMouseDown,
+                    "fill-neutral-100",
+                    "fill-neutral-100",
+                    "fill-neutral-100"
+                );
+        }
+    };
+
     return (
         <button
             className={twMerge(
@@ -247,8 +541,36 @@ const Round: React.FC<ButtonProps> = ({
                     color
                 )} ${PADDING} ${FONT} rounded-full ${className}`
             )}
+            onMouseOver={() => setIsMouseOver(true)}
+            onMouseLeave={() => setIsMouseOver(false)}
+            onMouseDown={() => setIsMouseDown(true)}
+            onMouseUp={() => setIsMouseDown(false)}
         >
-            {children}
+            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+                {leftIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {leftIcon}
+                    </IconContainer>
+                )}
+                <Text className="leading-none mt-1">{children}</Text>
+                {rightIcon && (
+                    <IconContainer fill={getIconFill(color)} size={15}>
+                        {rightIcon}
+                    </IconContainer>
+                )}
+            </HStack>
         </button>
     );
+};
+
+const determineIconFill = (
+    isMouseOver: boolean,
+    isMouseDown: boolean,
+    defaultFill: string,
+    hoverFill: string,
+    activeFill: string
+) => {
+    if (isMouseDown) return activeFill;
+    if (isMouseOver) return hoverFill;
+    return defaultFill;
 };
