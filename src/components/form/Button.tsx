@@ -7,6 +7,7 @@ import { HStack, Text } from "../";
     Refactor way to handle colors and variants - there should only be one component without this much prop drilling
     Include focus styles
     Needs to be able to be disabled
+    Add focus:ring styles
  */
 
 const BORDER_RADIUS = "rounded-md";
