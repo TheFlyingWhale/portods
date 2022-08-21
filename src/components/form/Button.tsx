@@ -4,22 +4,81 @@ import IconContainer from "../icons/IconContainer";
 import { HStack, Text } from "../";
 
 /* To do:
-    rewrite to handle different sizes
     smarter way to handle colors and variants
  */
+
+const BORDER_RADIUS = "rounded-md";
+const FONT = "font-primary font-medium";
+const SIZE_EXTRA_SMALL = `px-2 py-1.5 text-xs`;
+const SIZE_SMALL = `px-3 py-2 text-sm`;
+const SIZE_MEDIUM = `px-4 py-2.5 text-base`;
+const SIZE_LARGE = `px-5 py-3 text-xl`;
+const ICON_SIZE_EXTRA_SMALL = 10;
+const ICON_SIZE_SMALL = 13;
+const ICON_SIZE_MEDIUM = 15;
+const ICON_SIZE_LARGE = 20;
+const GAP_SIZE_EXTRA_SMALL = `gap-2`;
+const GAP_SIZE_SMALL = `gap-2`;
+const GAP_SIZE_MEDIUM = `gap-3`;
+const GAP_SIZE_LARGE = `gap-4`;
+
+const getButtonSize = (size: ButtonSize) => {
+    if (size === "xs") return SIZE_EXTRA_SMALL;
+
+    if (size === "sm") return SIZE_SMALL;
+
+    if (size === "lg") return SIZE_LARGE;
+
+    return SIZE_MEDIUM;
+};
+
+const getIconSize = (size: ButtonSize) => {
+    if (size === "xs") return ICON_SIZE_EXTRA_SMALL;
+
+    if (size === "sm") return ICON_SIZE_SMALL;
+
+    if (size === "lg") return ICON_SIZE_LARGE;
+
+    return ICON_SIZE_MEDIUM;
+};
+
+const getGapSize = (size: ButtonSize) => {
+    if (size === "xs") return GAP_SIZE_EXTRA_SMALL;
+
+    if (size === "sm") return GAP_SIZE_SMALL;
+
+    if (size === "lg") return GAP_SIZE_LARGE;
+
+    return GAP_SIZE_MEDIUM;
+};
+
+export type ButtonVariant =
+    | "primary"
+    | "secondary"
+    | "outlined"
+    | "ghost"
+    | "round"
+    | undefined;
+
+export type ButtonColor =
+    | "neutral"
+    | "blue"
+    | "green"
+    | "red"
+    | "orange"
+    | undefined;
+
+export type ButtonSize = "xs" | "sm" | "md" | "lg" | undefined;
 
 interface ButtonProps {
     children: React.ReactNode;
     className?: string;
-    variant?: "primary" | "secondary" | "outlined" | "ghost" | "round";
-    color?: "neutral" | "blue" | "green" | "red" | "orange";
+    variant?: ButtonVariant;
+    color?: ButtonColor;
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
+    size?: ButtonSize;
 }
-
-const PADDING = "px-4 pt-2.5 pb-3";
-const BORDER_RADIUS = "rounded-md";
-const FONT = "font-primary font-medium";
 
 const Button: React.FC<ButtonProps> = ({
     children,
@@ -28,6 +87,7 @@ const Button: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     if (variant === "secondary")
         return (
@@ -36,6 +96,7 @@ const Button: React.FC<ButtonProps> = ({
                 rightIcon={rightIcon}
                 className={className}
                 color={color}
+                size={size}
             >
                 {children}
             </Secondary>
@@ -48,6 +109,7 @@ const Button: React.FC<ButtonProps> = ({
                 rightIcon={rightIcon}
                 className={className}
                 color={color}
+                size={size}
             >
                 {children}
             </Outlined>
@@ -60,6 +122,7 @@ const Button: React.FC<ButtonProps> = ({
                 rightIcon={rightIcon}
                 className={className}
                 color={color}
+                size={size}
             >
                 {children}
             </Ghost>
@@ -72,6 +135,7 @@ const Button: React.FC<ButtonProps> = ({
                 rightIcon={rightIcon}
                 className={className}
                 color={color}
+                size={size}
             >
                 {children}
             </Round>
@@ -83,6 +147,7 @@ const Button: React.FC<ButtonProps> = ({
             rightIcon={rightIcon}
             className={className}
             color={color}
+            size={size}
         >
             {children}
         </Primary>
@@ -97,6 +162,7 @@ const Primary: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     const getColorClasses = (color: string) => {
         switch (color) {
@@ -116,20 +182,30 @@ const Primary: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(
-                    color
-                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
+                `${getColorClasses(color)} ${getButtonSize(
+                    size
+                )} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
         >
-            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+            <HStack
+                className={`justify-center items-center whitespace-nowrap ${getGapSize(
+                    size
+                )}`}
+            >
                 {leftIcon && (
-                    <IconContainer className="fill-neutral-100" size={15}>
+                    <IconContainer
+                        className="fill-neutral-100"
+                        size={getIconSize(size)}
+                    >
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className={`leading-none mt-1`}>{children}</Text>
                 {rightIcon && (
-                    <IconContainer className="fill-neutral-100" size={15}>
+                    <IconContainer
+                        className="fill-neutral-100"
+                        size={getIconSize(size)}
+                    >
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -144,6 +220,7 @@ const Secondary: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -211,24 +288,34 @@ const Secondary: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(
-                    color
-                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
+                `${getColorClasses(color)} ${getButtonSize(
+                    size
+                )} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
             onMouseOver={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
         >
-            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+            <HStack
+                className={`justify-center items-center whitespace-nowrap ${getGapSize(
+                    size
+                )}`}
+            >
                 {leftIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -243,6 +330,7 @@ const Outlined: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -344,24 +432,34 @@ const Outlined: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(
-                    color
-                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
+                `${getColorClasses(color)} ${getButtonSize(
+                    size
+                )} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
             onMouseOver={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
         >
-            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+            <HStack
+                className={`justify-center items-center whitespace-nowrap ${getGapSize(
+                    size
+                )}`}
+            >
                 {leftIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -376,6 +474,7 @@ const Ghost: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -443,24 +542,34 @@ const Ghost: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(
-                    color
-                )} ${PADDING} ${BORDER_RADIUS} ${FONT} ${className}`
+                `${getColorClasses(color)} ${getButtonSize(
+                    size
+                )} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
             onMouseOver={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
         >
-            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+            <HStack
+                className={`justify-center items-center whitespace-nowrap ${getGapSize(
+                    size
+                )}`}
+            >
                 {leftIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {rightIcon}
                     </IconContainer>
                 )}
@@ -475,6 +584,7 @@ const Round: React.FC<ButtonProps> = ({
     color = "neutral",
     leftIcon,
     rightIcon,
+    size = "md",
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -542,24 +652,34 @@ const Round: React.FC<ButtonProps> = ({
     return (
         <button
             className={twMerge(
-                `${getColorClasses(
-                    color
-                )} ${PADDING} ${FONT} rounded-full ${className}`
+                `${getColorClasses(color)} ${getButtonSize(
+                    size
+                )} ${FONT} rounded-full ${className}`
             )}
             onMouseOver={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
         >
-            <HStack className="justify-center items-center gap-2 whitespace-nowrap">
+            <HStack
+                className={`justify-center items-center whitespace-nowrap ${getGapSize(
+                    size
+                )}`}
+            >
                 {leftIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {leftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
                 {rightIcon && (
-                    <IconContainer className={getIconFill(color)} size={15}>
+                    <IconContainer
+                        className={getIconFill(color)}
+                        size={getIconSize(size)}
+                    >
                         {rightIcon}
                     </IconContainer>
                 )}

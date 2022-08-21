@@ -5,8 +5,8 @@ import ShowcaseIcons from "./showCase/ShowcaseIcons";
 
 const App = () => {
     return (
-        <VStack className="bg-slate-200 h-screen justify-center items-center">
-            <VStack className="w-1/2 h-1/2 bg-white justify-center items-center rounded-3xl drop-shadow-sm gap-6">
+        <VStack className="bg-neutral-100 h-screen justify-center items-center">
+            <VStack className=" bg-neutral-150 justify-center items-center rounded-3xl drop-shadow-sm gap-6 p-24">
                 <Heading className="text-6xl">Portods</Heading>
                 <ShowcaseButtons />
                 <ShowcaseIcons />

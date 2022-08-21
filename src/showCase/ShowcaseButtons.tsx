@@ -1,10 +1,150 @@
-import React from "react";
-import { Button, Heading, HStack, IconLock, VStack } from "../components";
+import React, { useState } from "react";
+import {
+    Button,
+    Heading,
+    HStack,
+    IconHome,
+    IconLock,
+    Label,
+    VStack,
+} from "../components";
+import {
+    ButtonVariant,
+    ButtonColor,
+    ButtonSize,
+} from "../components/form/Button";
 
 const ShowcaseButtons: React.FC = () => {
     return (
         <VStack className="gap-3 items-center">
-            <Heading as="h2">Buttons</Heading>
+            <ButtonSelector />
+            <AllButtons />
+        </VStack>
+    );
+};
+
+export default ShowcaseButtons;
+
+const ButtonSelector = () => {
+    const [variant, setVariant] = useState<ButtonVariant>(undefined);
+    const [color, setColor] = useState<ButtonColor>(undefined);
+    const [leftIcon, setLeftIcon] = useState<string>("");
+    const [rightIcon, setRightIcon] = useState<string>("");
+    const [size, setSize] = useState<ButtonSize>("xs");
+
+    const IconSelector = ({
+        onChange,
+        id,
+        name,
+    }: {
+        onChange: (event) => void;
+        id: string;
+        name: string;
+    }) => {
+        return (
+            <select
+                id={id}
+                name={name}
+                onChange={(e) => onChange(e.target.value)}
+            >
+                <option value="">Left Icon</option>
+                <option value="home">Home</option>
+            </select>
+        );
+    };
+
+    return (
+        <>
+            <Heading as="h2">Button selector</Heading>
+            <HStack className="gap-3">
+                <VStack>
+                    <Label htmlFor="variant">Variant</Label>
+                    <select
+                        id="variant"
+                        name="variant"
+                        onChange={(e) =>
+                            setVariant(e.target.value as ButtonVariant)
+                        }
+                    >
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="outlined">Outlined</option>
+                        <option value="ghost">Ghost</option>
+                        <option value="round">Round</option>
+                    </select>
+                </VStack>
+                <VStack>
+                    <Label htmlFor="color">Color</Label>
+                    <select
+                        id="color"
+                        name="color"
+                        onChange={(e) =>
+                            setColor(e.target.value as ButtonColor)
+                        }
+                    >
+                        <option value="neutral">Neutral</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                    </select>
+                </VStack>
+                <VStack>
+                    <Label htmlFor="leftIcon">Left Icon</Label>
+                    <IconSelector
+                        name="leftIcon"
+                        id="leftIcon"
+                        onChange={(value) => setLeftIcon(value)}
+                    />
+                </VStack>
+                <VStack>
+                    <Label htmlFor="rightIcon">Right Icon</Label>
+                    <IconSelector
+                        name="rightIcon"
+                        id="rightIcon"
+                        onChange={(value) => setRightIcon(value)}
+                    />
+                </VStack>
+                <VStack>
+                    <Label htmlFor="size">Size</Label>
+                    <select
+                        id="size"
+                        name="size"
+                        onChange={(e) => setSize(e.target.value as ButtonSize)}
+                    >
+                        <option value="xs">Extra small</option>
+                        <option value="sm">Small</option>
+                        <option value="md">Medium</option>
+                        <option value="lg">Large</option>
+                    </select>
+                </VStack>
+            </HStack>
+            <Button
+                variant={variant}
+                color={color}
+                leftIcon={getIcon(leftIcon)}
+                rightIcon={getIcon(rightIcon)}
+                size={size}
+            >
+                Variable button
+            </Button>
+        </>
+    );
+};
+
+const getIcon = (icon: string) => {
+    switch (icon) {
+        case "home":
+            return <IconHome />;
+        default:
+            return;
+    }
+};
+
+const AllButtons = () => {
+    return (
+        <>
+            <Heading as="h2">All Buttons</Heading>
             <HStack className="gap-3">
                 <VStack className="gap-3">
                     <Button leftIcon={<IconLock />}>Primary neutral</Button>
@@ -186,8 +326,6 @@ const ShowcaseButtons: React.FC = () => {
                     </Button>
                 </VStack>
             </HStack>
-        </VStack>
+        </>
     );
 };
-
-export default ShowcaseButtons;
