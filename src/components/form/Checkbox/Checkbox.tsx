@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, Label } from "../..";
+import { Horizontal, Label } from "../..";
 import "./Checkbox.css";
 
 const getCheckboxSize = (size: string) => {
@@ -33,7 +33,7 @@ interface CheckboxProps {
 
 const Checkbox: React.FC<CheckboxProps> = ({ name, size = "md" }) => {
     return (
-        <HStack
+        <Horizontal
             className="
                 gap-2 
                 cursor-pointer 
@@ -71,7 +71,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ name, size = "md" }) => {
             >
                 {name}
             </Label>
-        </HStack>
+        </Horizontal>
     );
 };
 

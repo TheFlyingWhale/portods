@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import {
     Button,
     Heading,
-    HStack,
+    Horizontal,
     IconHome,
     IconLock,
     Label,
-    VStack,
+    Vertical,
 } from "../components";
 import {
     ButtonVariant,
     ButtonColor,
     ButtonSize,
+    ButtonAlign,
 } from "../components/form/Button";
 
 const ShowcaseButtons: React.FC = () => {
     return (
-        <VStack className="gap-3 items-center">
+        <Vertical className="gap-3 items-center">
             <ButtonSelector />
             <AllButtons />
-        </VStack>
+        </Vertical>
     );
 };
 
@@ -31,6 +32,7 @@ const ButtonSelector = () => {
     const [leftIcon, setLeftIcon] = useState<string>("");
     const [rightIcon, setRightIcon] = useState<string>("");
     const [size, setSize] = useState<ButtonSize>("xs");
+    const [align, setAlign] = useState<ButtonAlign>(undefined);
 
     const handleClick = () => {
         console.log("hello world");
@@ -60,8 +62,8 @@ const ButtonSelector = () => {
     return (
         <>
             <Heading as="h2">Button selector</Heading>
-            <HStack className="gap-3">
-                <VStack>
+            <Horizontal className="gap-3">
+                <Vertical>
                     <Label htmlFor="variant">Variant</Label>
                     <select
                         id="variant"
@@ -76,8 +78,8 @@ const ButtonSelector = () => {
                         <option value="ghost">Ghost</option>
                         <option value="round">Round</option>
                     </select>
-                </VStack>
-                <VStack>
+                </Vertical>
+                <Vertical>
                     <Label htmlFor="color">Color</Label>
                     <select
                         id="color"
@@ -92,24 +94,24 @@ const ButtonSelector = () => {
                         <option value="red">Red</option>
                         <option value="orange">Orange</option>
                     </select>
-                </VStack>
-                <VStack>
+                </Vertical>
+                <Vertical>
                     <Label htmlFor="leftIcon">Left Icon</Label>
                     <IconSelector
                         name="leftIcon"
                         id="leftIcon"
                         onChange={(value) => setLeftIcon(value)}
                     />
-                </VStack>
-                <VStack>
+                </Vertical>
+                <Vertical>
                     <Label htmlFor="rightIcon">Right Icon</Label>
                     <IconSelector
                         name="rightIcon"
                         id="rightIcon"
                         onChange={(value) => setRightIcon(value)}
                     />
-                </VStack>
-                <VStack>
+                </Vertical>
+                <Vertical>
                     <Label htmlFor="size">Size</Label>
                     <select
                         id="size"
@@ -121,8 +123,25 @@ const ButtonSelector = () => {
                         <option value="md">Medium</option>
                         <option value="lg">Large</option>
                     </select>
-                </VStack>
-            </HStack>
+                </Vertical>
+                <Vertical>
+                    <Label htmlFor="size">Align</Label>
+                    <select
+                        id="align"
+                        name="align"
+                        onChange={(e) =>
+                            setAlign(e.target.value as ButtonAlign)
+                        }
+                    >
+                        <option value="center">Center</option>
+                        <option value="start">Start</option>
+                        <option value="end">End</option>
+                        <option value="between">Between</option>
+                        <option value="around">Around</option>
+                        <option value="evenly">Evenly</option>
+                    </select>
+                </Vertical>
+            </Horizontal>
             <Button
                 variant={variant}
                 color={color}
@@ -130,6 +149,8 @@ const ButtonSelector = () => {
                 rightIcon={getIcon(rightIcon)}
                 size={size}
                 onClick={handleClick}
+                className="w-60"
+                align={align}
             >
                 Variable button
             </Button>
@@ -150,8 +171,8 @@ const AllButtons = () => {
     return (
         <>
             <Heading as="h2">All Buttons</Heading>
-            <HStack className="gap-3">
-                <VStack className="gap-3">
+            <Horizontal className="gap-3">
+                <Vertical className="gap-3">
                     <Button leftIcon={<IconLock />}>Primary neutral</Button>
                     <Button
                         className="w-full"
@@ -181,8 +202,8 @@ const AllButtons = () => {
                     >
                         Primary orange
                     </Button>
-                </VStack>
-                <VStack className="gap-3">
+                </Vertical>
+                <Vertical className="gap-3">
                     <Button variant="secondary" leftIcon={<IconLock />}>
                         Secondary neutral
                     </Button>
@@ -218,8 +239,8 @@ const AllButtons = () => {
                     >
                         Secondary orange
                     </Button>
-                </VStack>
-                <VStack className="gap-3">
+                </Vertical>
+                <Vertical className="gap-3">
                     <Button variant="outlined" leftIcon={<IconLock />}>
                         Outlined neutral
                     </Button>
@@ -255,8 +276,8 @@ const AllButtons = () => {
                     >
                         Outlined orange
                     </Button>
-                </VStack>
-                <VStack className="gap-3">
+                </Vertical>
+                <Vertical className="gap-3">
                     <Button variant="ghost" leftIcon={<IconLock />}>
                         Ghost neutral
                     </Button>
@@ -292,8 +313,8 @@ const AllButtons = () => {
                     >
                         Ghost orange
                     </Button>
-                </VStack>
-                <VStack className="gap-3">
+                </Vertical>
+                <Vertical className="gap-3">
                     <Button variant="round" leftIcon={<IconLock />}>
                         Round neutral
                     </Button>
@@ -329,8 +350,8 @@ const AllButtons = () => {
                     >
                         Round orange
                     </Button>
-                </VStack>
-            </HStack>
+                </Vertical>
+            </Horizontal>
         </>
     );
 };

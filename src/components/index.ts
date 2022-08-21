@@ -11,8 +11,8 @@ import Heading from "./typography/Heading";
 import Text from "./typography/Text";
 
 //Layout
-import VStack from "./layout/VStack";
-import HStack from "./layout/HStack";
+import Vertical from "./layout/Vertical";
+import Horizontal from "./layout/Horizontal";
 import Grid from "./layout/Grid";
 import GridItem from "./layout/GridItem";
 
@@ -38,8 +38,8 @@ export {
     Heading,
     Text,
     //Layout
-    VStack,
-    HStack,
+    Vertical,
+    Horizontal,
     Grid,
     GridItem,
     //Icons

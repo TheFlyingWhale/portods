@@ -2,9 +2,9 @@ import React from "react";
 import {
     IconContainer,
     IconLock,
-    VStack,
+    Vertical,
     Heading,
-    HStack,
+    Horizontal,
     IconExit,
     IconHome,
     IconMail,
@@ -18,9 +18,9 @@ const ICON_COLOR = "fill-orange-500";
 
 const ShowcaseIcons = () => {
     return (
-        <VStack className="gap-3 items-center">
+        <Vertical className="gap-3 items-center">
             <Heading as="h2">Icons</Heading>
-            <HStack className="gap-3">
+            <Horizontal className="gap-3">
                 <IconContainer className={ICON_COLOR} size={25}>
                     <IconExit />
                 </IconContainer>
@@ -45,8 +45,8 @@ const ShowcaseIcons = () => {
                 <IconContainer className={ICON_COLOR} size={25}>
                     <IconTrash />
                 </IconContainer>
-            </HStack>
-        </VStack>
+            </Horizontal>
+        </Vertical>
     );
 };
 

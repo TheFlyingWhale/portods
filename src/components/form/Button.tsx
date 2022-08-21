@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import IconContainer from "../icons/IconContainer";
-import { HStack, Text } from "../";
+import { Horizontal, Text } from "../";
 
 /* To do:
     Refactor way to handle colors and variants - there should only be one component without this much prop drilling
@@ -70,6 +70,20 @@ const determineIconFill = (
     return defaultFill;
 };
 
+const getButtonAlignment = (align: ButtonAlign) => {
+    if (align === "start") return "justify-start";
+
+    if (align === "end") return "justify-end";
+
+    if (align === "between") return "justify-between";
+
+    if (align === "around") return "justify-around";
+
+    if (align === "evenly") return "justify-evenly";
+
+    return "justify-center";
+};
+
 export type ButtonVariant =
     | "primary"
     | "secondary"
@@ -88,6 +102,15 @@ export type ButtonColor =
 
 export type ButtonSize = "xs" | "sm" | "md" | "lg" | undefined;
 
+export type ButtonAlign =
+    | "start"
+    | "end"
+    | "center"
+    | "between"
+    | "around"
+    | "evenly"
+    | undefined;
+
 interface ButtonProps {
     children: React.ReactNode;
     className?: string;
@@ -96,6 +119,7 @@ interface ButtonProps {
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     size?: ButtonSize;
+    align?: ButtonAlign;
     onClick?: () => void;
 }
 
@@ -107,6 +131,7 @@ const Button: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     if (variant === "secondary")
@@ -117,6 +142,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                align={align}
                 onClick={onClick}
             >
                 {children}
@@ -131,6 +157,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                align={align}
                 onClick={onClick}
             >
                 {children}
@@ -145,6 +172,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                align={align}
                 onClick={onClick}
             >
                 {children}
@@ -159,6 +187,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                align={align}
                 onClick={onClick}
             >
                 {children}
@@ -172,6 +201,7 @@ const Button: React.FC<ButtonProps> = ({
             className={className}
             color={color}
             size={size}
+            align={align}
             onClick={onClick}
         >
             {children}
@@ -188,6 +218,7 @@ const Primary: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     const getColorClasses = (color: string) => {
@@ -214,10 +245,14 @@ const Primary: React.FC<ButtonProps> = ({
             )}
             onClick={onClick}
         >
-            <HStack
-                className={`justify-center items-center whitespace-nowrap ${getGapSize(
-                    size
-                )}`}
+            <Horizontal
+                className={`
+                    ${getButtonAlignment(align)} 
+                    items-center 
+                    whitespace-nowrap 
+                    w-full
+                    ${getGapSize(size)}
+                `}
             >
                 {leftIcon && (
                     <IconContainer
@@ -236,7 +271,7 @@ const Primary: React.FC<ButtonProps> = ({
                         {rightIcon}
                     </IconContainer>
                 )}
-            </HStack>
+            </Horizontal>
         </button>
     );
 };
@@ -248,6 +283,7 @@ const Secondary: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
@@ -326,10 +362,13 @@ const Secondary: React.FC<ButtonProps> = ({
             onMouseUp={() => setIsMouseDown(false)}
             onClick={onClick}
         >
-            <HStack
-                className={`justify-center items-center whitespace-nowrap ${getGapSize(
-                    size
-                )}`}
+            <Horizontal
+                className={`
+                    ${getButtonAlignment(align)} 
+                    items-center 
+                    whitespace-nowrap 
+                    ${getGapSize(size)}
+                `}
             >
                 {leftIcon && (
                     <IconContainer
@@ -348,7 +387,7 @@ const Secondary: React.FC<ButtonProps> = ({
                         {rightIcon}
                     </IconContainer>
                 )}
-            </HStack>
+            </Horizontal>
         </button>
     );
 };
@@ -360,6 +399,7 @@ const Outlined: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
@@ -472,10 +512,13 @@ const Outlined: React.FC<ButtonProps> = ({
             onMouseUp={() => setIsMouseDown(false)}
             onClick={onClick}
         >
-            <HStack
-                className={`justify-center items-center whitespace-nowrap ${getGapSize(
-                    size
-                )}`}
+            <Horizontal
+                className={`
+                    ${getButtonAlignment(align)} 
+                    items-center 
+                    whitespace-nowrap 
+                    ${getGapSize(size)}
+                `}
             >
                 {leftIcon && (
                     <IconContainer
@@ -494,7 +537,7 @@ const Outlined: React.FC<ButtonProps> = ({
                         {rightIcon}
                     </IconContainer>
                 )}
-            </HStack>
+            </Horizontal>
         </button>
     );
 };
@@ -506,6 +549,7 @@ const Ghost: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
@@ -584,10 +628,13 @@ const Ghost: React.FC<ButtonProps> = ({
             onMouseUp={() => setIsMouseDown(false)}
             onClick={onClick}
         >
-            <HStack
-                className={`justify-center items-center whitespace-nowrap ${getGapSize(
-                    size
-                )}`}
+            <Horizontal
+                className={`
+                    ${getButtonAlignment(align)} 
+                    items-center 
+                    whitespace-nowrap 
+                    ${getGapSize(size)}
+                `}
             >
                 {leftIcon && (
                     <IconContainer
@@ -606,7 +653,7 @@ const Ghost: React.FC<ButtonProps> = ({
                         {rightIcon}
                     </IconContainer>
                 )}
-            </HStack>
+            </Horizontal>
         </button>
     );
 };
@@ -618,6 +665,7 @@ const Round: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    align = "center",
     onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
@@ -696,10 +744,13 @@ const Round: React.FC<ButtonProps> = ({
             onMouseUp={() => setIsMouseDown(false)}
             onClick={onClick}
         >
-            <HStack
-                className={`justify-center items-center whitespace-nowrap ${getGapSize(
-                    size
-                )}`}
+            <Horizontal
+                className={`
+                    ${getButtonAlignment(align)} 
+                    items-center 
+                    whitespace-nowrap 
+                    ${getGapSize(size)}
+                `}
             >
                 {leftIcon && (
                     <IconContainer
@@ -718,7 +769,7 @@ const Round: React.FC<ButtonProps> = ({
                         {rightIcon}
                     </IconContainer>
                 )}
-            </HStack>
+            </Horizontal>
         </button>
     );
 };
