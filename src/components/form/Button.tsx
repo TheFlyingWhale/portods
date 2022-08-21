@@ -4,19 +4,24 @@ import IconContainer from "../icons/IconContainer";
 import { HStack, Text } from "../";
 
 /* To do:
-    smarter way to handle colors and variants
+    Refactor way to handle colors and variants - there should only be one component without this much prop drilling
+    Include focus styles
+    Needs to be able to be disabled
  */
 
 const BORDER_RADIUS = "rounded-md";
 const FONT = "font-primary font-medium";
+
 const SIZE_EXTRA_SMALL = `px-2 py-1.5 text-xs`;
 const SIZE_SMALL = `px-3 py-2 text-sm`;
 const SIZE_MEDIUM = `px-4 py-2.5 text-base`;
 const SIZE_LARGE = `px-5 py-3 text-xl`;
+
 const ICON_SIZE_EXTRA_SMALL = 10;
 const ICON_SIZE_SMALL = 13;
 const ICON_SIZE_MEDIUM = 15;
 const ICON_SIZE_LARGE = 20;
+
 const GAP_SIZE_EXTRA_SMALL = `gap-2`;
 const GAP_SIZE_SMALL = `gap-2`;
 const GAP_SIZE_MEDIUM = `gap-3`;
@@ -52,6 +57,18 @@ const getGapSize = (size: ButtonSize) => {
     return GAP_SIZE_MEDIUM;
 };
 
+const determineIconFill = (
+    isMouseOver: boolean,
+    isMouseDown: boolean,
+    defaultFill: string,
+    hoverFill: string,
+    activeFill: string
+) => {
+    if (isMouseDown) return activeFill;
+    if (isMouseOver) return hoverFill;
+    return defaultFill;
+};
+
 export type ButtonVariant =
     | "primary"
     | "secondary"
@@ -78,6 +95,7 @@ interface ButtonProps {
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     size?: ButtonSize;
+    onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -88,6 +106,7 @@ const Button: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     if (variant === "secondary")
         return (
@@ -97,6 +116,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                onClick={onClick}
             >
                 {children}
             </Secondary>
@@ -110,6 +130,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                onClick={onClick}
             >
                 {children}
             </Outlined>
@@ -123,6 +144,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                onClick={onClick}
             >
                 {children}
             </Ghost>
@@ -136,6 +158,7 @@ const Button: React.FC<ButtonProps> = ({
                 className={className}
                 color={color}
                 size={size}
+                onClick={onClick}
             >
                 {children}
             </Round>
@@ -148,6 +171,7 @@ const Button: React.FC<ButtonProps> = ({
             className={className}
             color={color}
             size={size}
+            onClick={onClick}
         >
             {children}
         </Primary>
@@ -163,6 +187,7 @@ const Primary: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     const getColorClasses = (color: string) => {
         switch (color) {
@@ -186,6 +211,7 @@ const Primary: React.FC<ButtonProps> = ({
                     size
                 )} ${BORDER_RADIUS} ${FONT} ${className}`
             )}
+            onClick={onClick}
         >
             <HStack
                 className={`justify-center items-center whitespace-nowrap ${getGapSize(
@@ -221,6 +247,7 @@ const Secondary: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -296,6 +323,7 @@ const Secondary: React.FC<ButtonProps> = ({
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
+            onClick={onClick}
         >
             <HStack
                 className={`justify-center items-center whitespace-nowrap ${getGapSize(
@@ -331,6 +359,7 @@ const Outlined: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -440,6 +469,7 @@ const Outlined: React.FC<ButtonProps> = ({
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
+            onClick={onClick}
         >
             <HStack
                 className={`justify-center items-center whitespace-nowrap ${getGapSize(
@@ -475,6 +505,7 @@ const Ghost: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -550,6 +581,7 @@ const Ghost: React.FC<ButtonProps> = ({
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
+            onClick={onClick}
         >
             <HStack
                 className={`justify-center items-center whitespace-nowrap ${getGapSize(
@@ -585,6 +617,7 @@ const Round: React.FC<ButtonProps> = ({
     leftIcon,
     rightIcon,
     size = "md",
+    onClick,
 }) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -660,6 +693,7 @@ const Round: React.FC<ButtonProps> = ({
             onMouseLeave={() => setIsMouseOver(false)}
             onMouseDown={() => setIsMouseDown(true)}
             onMouseUp={() => setIsMouseDown(false)}
+            onClick={onClick}
         >
             <HStack
                 className={`justify-center items-center whitespace-nowrap ${getGapSize(
@@ -686,16 +720,4 @@ const Round: React.FC<ButtonProps> = ({
             </HStack>
         </button>
     );
-};
-
-const determineIconFill = (
-    isMouseOver: boolean,
-    isMouseDown: boolean,
-    defaultFill: string,
-    hoverFill: string,
-    activeFill: string
-) => {
-    if (isMouseDown) return activeFill;
-    if (isMouseOver) return hoverFill;
-    return defaultFill;
 };

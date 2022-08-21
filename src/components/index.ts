@@ -3,7 +3,7 @@ import "../index.css";
 //Form
 import Button from "./form/Button";
 import Input from "./form/Input";
-import Checkbox from "./form/Checkbox";
+import Checkbox from "./form/Checkbox/Checkbox";
 import Label from "./form/Label";
 
 //Typography

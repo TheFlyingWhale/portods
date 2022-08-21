@@ -32,6 +32,10 @@ const ButtonSelector = () => {
     const [rightIcon, setRightIcon] = useState<string>("");
     const [size, setSize] = useState<ButtonSize>("xs");
 
+    const handleClick = () => {
+        console.log("hello world");
+    };
+
     const IconSelector = ({
         onChange,
         id,
@@ -125,6 +129,7 @@ const ButtonSelector = () => {
                 leftIcon={getIcon(leftIcon)}
                 rightIcon={getIcon(rightIcon)}
                 size={size}
+                onClick={handleClick}
             >
                 Variable button
             </Button>
