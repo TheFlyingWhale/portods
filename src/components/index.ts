@@ -27,6 +27,7 @@ import IconProfileDocument from "./icons/IconProfileDocument";
 import IconSearch from "./icons/IconSearch";
 import IconSmiley from "./icons/IconSmiley";
 import IconTrash from "./icons/IconTrash";
+import IconCheck from "./icons/IconCheck";
 
 export {
     //Form
@@ -53,4 +54,5 @@ export {
     IconSearch,
     IconSmiley,
     IconTrash,
+    IconCheck,
 };

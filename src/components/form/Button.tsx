@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import IconContainer from "../icons/IconContainer";
-import { Horizontal, Text } from "../";
+import { Horizontal, IconContainer, Text } from "../";
 
 /* To do:
     Include focus styles
@@ -37,24 +36,35 @@ export type ButtonAlign =
     | undefined;
 
 interface ButtonProps {
-    children: React.ReactNode;
+    children: string;
     className?: string;
     variant?: ButtonVariant;
     color?: ButtonColor;
-    leftIcon?: React.ReactNode;
-    rightIcon?: React.ReactNode;
+    LeftIcon?: React.ReactNode;
+    RightIcon?: React.ReactNode;
     size?: ButtonSize;
     align?: ButtonAlign;
     onClick?: () => void;
 }
 
+/**
+ * @prop {string} children
+ * @prop {string} className
+ * @prop {ButtonVariant} variant - "primary" | "secondary" | "outlined" | "ghost" | "round"
+ * @prop {ButtonColor} color - "primary" | "secondary" | "outlined" | "ghost" | "round"
+ * @prop {React.ReactNode?} leftIcon - icon with the prop "contained" set to false
+ * @prop {React.ReactNode?} rightIcon - icon with the prop "contained" set to false
+ * @prop {ButtonSize} size - "xs" | "sm" | "md" | "lg"
+ * @prop {ButtonAlgin} align - "start" | "end" | "center" | "between" | "around" | "evenly"
+ * @prop {() => void} onClick - Arrow function
+ */
 const Button: React.FC<ButtonProps> = ({
     children,
     className,
     variant = "primary",
     color = "neutral",
-    leftIcon,
-    rightIcon,
+    LeftIcon,
+    RightIcon,
     size = "md",
     align = "center",
     onClick,
@@ -85,7 +95,7 @@ const Button: React.FC<ButtonProps> = ({
                     ${getGapSize(size)}
                 `}
             >
-                {leftIcon && (
+                {LeftIcon && (
                     <IconContainer
                         className={getIconFill(
                             variant,
@@ -95,11 +105,11 @@ const Button: React.FC<ButtonProps> = ({
                         )}
                         size={getIconSize(size)}
                     >
-                        {leftIcon}
+                        {LeftIcon}
                     </IconContainer>
                 )}
                 <Text className="leading-none mt-1">{children}</Text>
-                {rightIcon && (
+                {RightIcon && (
                     <IconContainer
                         className={getIconFill(
                             variant,
@@ -109,7 +119,7 @@ const Button: React.FC<ButtonProps> = ({
                         )}
                         size={getIconSize(size)}
                     >
-                        {rightIcon}
+                        {RightIcon}
                     </IconContainer>
                 )}
             </Horizontal>

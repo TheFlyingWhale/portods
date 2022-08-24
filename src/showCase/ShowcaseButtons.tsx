@@ -55,6 +55,7 @@ const ButtonSelector = () => {
             >
                 <option value="">Left Icon</option>
                 <option value="home">Home</option>
+                <option value="lock">Lock</option>
             </select>
         );
     };
@@ -145,11 +146,10 @@ const ButtonSelector = () => {
             <Button
                 variant={variant}
                 color={color}
-                leftIcon={getIcon(leftIcon)}
-                rightIcon={getIcon(rightIcon)}
+                LeftIcon={getIcon(leftIcon)}
+                RightIcon={getIcon(rightIcon)}
                 size={size}
                 onClick={handleClick}
-                className="w-60"
                 align={align}
             >
                 Variable button
@@ -161,7 +161,9 @@ const ButtonSelector = () => {
 const getIcon = (icon: string) => {
     switch (icon) {
         case "home":
-            return <IconHome />;
+            return <IconHome contained={false} />;
+        case "lock":
+            return <IconLock contained={false} />;
         default:
             return;
     }
@@ -173,44 +175,44 @@ const AllButtons = () => {
             <Heading as="h2">All Buttons</Heading>
             <Horizontal className="gap-3">
                 <Vertical className="gap-3">
-                    <Button leftIcon={<IconLock />}>Primary neutral</Button>
+                    <Button LeftIcon={<IconLock />}>Primary neutral</Button>
                     <Button
                         className="w-full"
                         color="blue"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Primary blue
                     </Button>
                     <Button
                         className="w-full"
                         color="green"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Primary green
                     </Button>
                     <Button
                         className="w-full"
                         color="red"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Primary red
                     </Button>
                     <Button
                         className="w-full"
                         color="orange"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Primary orange
                     </Button>
                 </Vertical>
                 <Vertical className="gap-3">
-                    <Button variant="secondary" leftIcon={<IconLock />}>
+                    <Button variant="secondary" LeftIcon={<IconLock />}>
                         Secondary neutral
                     </Button>
                     <Button
                         variant="secondary"
                         className="w-full"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                         color="blue"
                     >
                         Secondary blue
@@ -218,7 +220,7 @@ const AllButtons = () => {
                     <Button
                         variant="secondary"
                         className="w-full"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                         color="green"
                     >
                         Secondary green
@@ -226,7 +228,7 @@ const AllButtons = () => {
                     <Button
                         variant="secondary"
                         className="w-full"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                         color="red"
                     >
                         Secondary red
@@ -234,21 +236,21 @@ const AllButtons = () => {
                     <Button
                         variant="secondary"
                         className="w-full"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                         color="orange"
                     >
                         Secondary orange
                     </Button>
                 </Vertical>
                 <Vertical className="gap-3">
-                    <Button variant="outlined" leftIcon={<IconLock />}>
+                    <Button variant="outlined" LeftIcon={<IconLock />}>
                         Outlined neutral
                     </Button>
                     <Button
                         variant="outlined"
                         className="w-full"
                         color="blue"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Outlined blue
                     </Button>
@@ -256,7 +258,7 @@ const AllButtons = () => {
                         variant="outlined"
                         className="w-full"
                         color="green"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Outlined green
                     </Button>
@@ -264,7 +266,7 @@ const AllButtons = () => {
                         variant="outlined"
                         className="w-full"
                         color="red"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Outlined red
                     </Button>
@@ -272,20 +274,20 @@ const AllButtons = () => {
                         variant="outlined"
                         className="w-full"
                         color="orange"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Outlined orange
                     </Button>
                 </Vertical>
                 <Vertical className="gap-3">
-                    <Button variant="ghost" leftIcon={<IconLock />}>
+                    <Button variant="ghost" LeftIcon={<IconLock />}>
                         Ghost neutral
                     </Button>
                     <Button
                         variant="ghost"
                         className="w-full"
                         color="blue"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Ghost blue
                     </Button>
@@ -293,7 +295,7 @@ const AllButtons = () => {
                         variant="ghost"
                         className="w-full"
                         color="green"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Ghost green
                     </Button>
@@ -301,7 +303,7 @@ const AllButtons = () => {
                         variant="ghost"
                         className="w-full"
                         color="red"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Ghost red
                     </Button>
@@ -309,20 +311,20 @@ const AllButtons = () => {
                         variant="ghost"
                         className="w-full"
                         color="orange"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Ghost orange
                     </Button>
                 </Vertical>
                 <Vertical className="gap-3">
-                    <Button variant="round" leftIcon={<IconLock />}>
+                    <Button variant="round" LeftIcon={<IconLock />}>
                         Round neutral
                     </Button>
                     <Button
                         variant="round"
                         className="w-full"
                         color="blue"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Round blue
                     </Button>
@@ -330,7 +332,7 @@ const AllButtons = () => {
                         variant="round"
                         className="w-full"
                         color="green"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Round green
                     </Button>
@@ -338,7 +340,7 @@ const AllButtons = () => {
                         variant="round"
                         className="w-full"
                         color="red"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Round red
                     </Button>
@@ -346,7 +348,7 @@ const AllButtons = () => {
                         variant="round"
                         className="w-full"
                         color="orange"
-                        leftIcon={<IconLock />}
+                        LeftIcon={<IconLock />}
                     >
                         Round orange
                     </Button>

@@ -1,12 +1,12 @@
 import React from "react";
 
-interface IconProps {
-    children: React.ReactNode;
+export interface IconContainerProps {
+    children?: React.ReactNode;
     className?: string;
     size?: number;
 }
 
-const IconContainer: React.FC<IconProps> = ({
+const IconContainer: React.FC<IconContainerProps> = ({
     children,
     className = "fill-neutral-700",
     size = 25,
