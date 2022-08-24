@@ -5,6 +5,7 @@ import Button from "./form/Button";
 import Input from "./form/Input";
 import Checkbox from "./form/Checkbox/Checkbox";
 import Label from "./form/Label";
+import HelperText from "./form/HelperText";
 
 //Typography
 import Heading from "./typography/Heading";
@@ -35,6 +36,7 @@ export {
     Input,
     Checkbox,
     Label,
+    HelperText,
     //Typography
     Heading,
     Text,

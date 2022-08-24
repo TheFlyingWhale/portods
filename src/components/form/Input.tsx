@@ -28,6 +28,8 @@ interface InputProps {
     placeholder?: string;
     size?: InputSize;
     leftIcon?: React.ReactNode;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -36,6 +38,8 @@ const Input: React.FC<InputProps> = ({
     name,
     size = "md",
     leftIcon,
+    onChange,
+    value,
 }) => {
     return (
         <div className="mt-1 relative rounded-md shadow-sm">
@@ -60,6 +64,8 @@ const Input: React.FC<InputProps> = ({
                 placeholder={placeholder}
                 name={name}
                 id={name}
+                onChange={onChange}
+                value={value}
             />
         </div>
     );
