@@ -1,5 +1,4 @@
 import { Horizontal, Label } from "../.."
-import "./Checkbox.css"
 
 const getCheckboxSize = (size: string) => {
 	if (size === "sm") return "w-3.5 h-3.5"
