@@ -1,6 +1,6 @@
 {
 	"name": "portods",
-	"version": "0.0.40",
+	"version": "0.0.41",
 	"description": "Design system and component library",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
