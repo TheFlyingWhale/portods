@@ -1,29 +1,29 @@
 .smCheckIcon:checked::before,
 .smCheckIcon:active::before {
-    content: "✓";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.5rem;
+	content: "✓";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 0.5rem;
 }
 
 .mdCheckIcon:checked::before,
 .mdCheckIcon:active::before {
-    content: "✓";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.6rem;
+	content: "✓";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 0.6rem;
 }
 
 .lgCheckIcon:checked::before,
 .lgCheckIcon:active::before {
-    content: "✓";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.75rem;
+	content: "✓";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 0.75rem;
 }
