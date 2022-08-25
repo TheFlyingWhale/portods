@@ -6,7 +6,7 @@ const SIZE_SM = "text-xs";
 const SIZE_MD = "text-sm";
 const SIZE_LG = "text-base";
 
-const getSize = (size: LabelSize) => {
+const getSize = (size: HelperTextSize) => {
     if (size === "sm") return SIZE_SM;
 
     if (size === "lg") return SIZE_LG;
@@ -14,11 +14,11 @@ const getSize = (size: LabelSize) => {
     return SIZE_MD;
 };
 
-type LabelSize = "sm" | "md" | "lg";
+type HelperTextSize = "sm" | "md" | "lg";
 
 interface HelperTextProps {
     children: string;
-    size?: "sm" | "md" | "lg";
+    size?: HelperTextSize;
     className?: string;
 }
 

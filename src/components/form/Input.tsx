@@ -20,7 +20,7 @@ const getInputSize = (size: InputSize, leftIcon: boolean) => {
     return SIZE_MD;
 };
 
-export type InputSize = "sm" | "md" | "lg" | undefined;
+export type InputSize = "sm" | "md" | "lg";
 
 interface InputProps {
     name?: string;

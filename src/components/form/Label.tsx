@@ -13,7 +13,7 @@ const getLabelSize = (size: LabelSize) => {
     return SIZE_MD;
 };
 
-type LabelSize = "sm" | "md" | "lg" | undefined;
+type LabelSize = "sm" | "md" | "lg";
 
 interface LabelProps {
     children: React.ReactNode;
