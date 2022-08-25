@@ -1,41 +1,40 @@
-import React from "react";
-import { twMerge } from "tailwind-merge";
-import { Text } from "../";
+import { twMerge } from "tailwind-merge"
+import { Text } from "../"
 
-const SIZE_SM = "text-xs";
-const SIZE_MD = "text-sm";
-const SIZE_LG = "text-base";
+const SIZE_SM = "text-xs"
+const SIZE_MD = "text-sm"
+const SIZE_LG = "text-base"
 
 const getSize = (size: HelperTextSize) => {
-    if (size === "sm") return SIZE_SM;
+	if (size === "sm") return SIZE_SM
 
-    if (size === "lg") return SIZE_LG;
+	if (size === "lg") return SIZE_LG
 
-    return SIZE_MD;
-};
+	return SIZE_MD
+}
 
-type HelperTextSize = "sm" | "md" | "lg";
+type HelperTextSize = "sm" | "md" | "lg"
 
 interface HelperTextProps {
-    children: string;
-    size?: HelperTextSize;
-    className?: string;
+	children: string
+	size?: HelperTextSize
+	className?: string
 }
 
 const HelperText: React.FC<HelperTextProps> = ({
-    children,
-    size = "md",
-    className,
+	children,
+	size = "md",
+	className,
 }) => {
-    return (
-        <Text
-            className={twMerge(
-                `${getSize(size)} text-neutral-600 mt-1 ${className}`
-            )}
-        >
-            {children}
-        </Text>
-    );
-};
+	return (
+		<Text
+			className={twMerge(
+				`${getSize(size)} text-neutral-600 mt-1 ${className}`
+			)}
+		>
+			{children}
+		</Text>
+	)
+}
 
-export default HelperText;
+export default HelperText

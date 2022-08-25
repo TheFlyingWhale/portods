@@ -1,13 +1,12 @@
-import React from "react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge"
 
 interface GridItemProps {
-    children: React.ReactNode;
-    className?: string;
+	children: React.ReactNode
+	className?: string
 }
 
 const GridItem: React.FC<GridItemProps> = ({ children, className }) => {
-    return <div className={twMerge(`flex ${className}`)}>{children}</div>;
-};
+	return <div className={twMerge(`flex ${className}`)}>{children}</div>
+}
 
-export default GridItem;
+export default GridItem

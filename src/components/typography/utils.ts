@@ -1,1 +1,1 @@
-export const TEXT_COLOR = "text-neutral-900";
+export const TEXT_COLOR = "text-neutral-900"

@@ -1,12 +1,10 @@
-import React from "react";
-
 interface HorizontalProps {
-    children: React.ReactNode;
-    className?: string;
+	children: React.ReactNode
+	className?: string
 }
 
 const Horizontal: React.FC<HorizontalProps> = ({ children, className }) => {
-    return <div className={`flex flex-row ${className}`}>{children}</div>;
-};
+	return <div className={`flex flex-row ${className}`}>{children}</div>
+}
 
-export default Horizontal;
+export default Horizontal
