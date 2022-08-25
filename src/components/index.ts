@@ -4,12 +4,12 @@ import "../index.css";
 import Button from "./form/Button";
 import Input from "./form/Input";
 import Checkbox from "./form/Checkbox/Checkbox";
-import Label from "./form/Label";
-import HelperText from "./form/HelperText";
 
 //Typography
 import Heading from "./typography/Heading";
 import Text from "./typography/Text";
+import Label from "./typography/Label";
+import HelperText from "./typography/Helper";
 
 //Layout
 import Vertical from "./layout/Vertical";
@@ -35,11 +35,11 @@ export {
     Button,
     Input,
     Checkbox,
-    Label,
-    HelperText,
     //Typography
     Heading,
     Text,
+    Label,
+    HelperText,
     //Layout
     Vertical,
     Horizontal,
