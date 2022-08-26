@@ -35,9 +35,10 @@ const ShowcaseIcons = () => {
 		<Vertical className="gap-3 items-center">
 			<Heading as="h2">Icons</Heading>
 			<Horizontal className="gap-3">
-				{icons.map((Icon) => {
+				{icons.map((Icon, index) => {
 					return (
 						<Icon
+							key={index}
 							className={ICON_COLOR}
 							size={25}
 							contained={true}
