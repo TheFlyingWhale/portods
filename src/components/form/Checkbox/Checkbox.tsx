@@ -73,9 +73,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 			<input
 				className={`
 					appearance-none cursor-pointer rounded-sm 
-					border 
-					border-neutral-500 
-					bg-blue-50 
+					border
+					border-neutral-300 
 					
 					focus:ring-2
 					focus:ring-offset-1

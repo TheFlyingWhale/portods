@@ -8,13 +8,7 @@ import { Horizontal, IconContainer, Text } from "../"
     Add focus:ring styles
  */
 
-export type ButtonVariant =
-	| "primary"
-	| "secondary"
-	| "outlined"
-	| "ghost"
-	| "round"
-	| undefined
+export type ButtonVariant = "primary" | "secondary" | "ghost" | undefined
 
 export type ButtonColor =
 	| "neutral"
@@ -50,7 +44,7 @@ interface ButtonProps {
 /**
  * @prop {string} children
  * @prop {string} className
- * @prop {ButtonVariant} variant - "primary" | "secondary" | "outlined" | "ghost" | "round"
+ * @prop {ButtonVariant} variant - "primary" | "secondary" | "ghost""
  * @prop {ButtonColor} color - "primary" | "secondary" | "outlined" | "ghost" | "round"
  * @prop {React.ReactNode?} leftIcon - icon with the prop "contained" set to false
  * @prop {React.ReactNode?} rightIcon - icon with the prop "contained" set to false
@@ -77,9 +71,7 @@ const Button: React.FC<ButtonProps> = ({
 			className={twMerge(
 				`${getVariantAndColorClasses(variant, color)} ${getButtonSize(
 					size
-				)} ${FONT} ${
-					variant === "round" ? "rounded-full" : BORDER_RADIUS
-				} ${className}`
+				)} ${FONT} ${BORDER_RADIUS} ${className}`
 			)}
 			onMouseOver={() => setIsMouseOver(true)}
 			onMouseLeave={() => setIsMouseOver(false)}
@@ -248,54 +240,6 @@ const getVariantAndColorClasses = (
 			}
 		}
 
-		case "outlined": {
-			switch (color) {
-				case "blue": {
-					const inactive =
-						"bg-blue-50 text-blue-600 outline outline-blue-600 outline-1"
-					const hover =
-						"hover:bg-blue-100 hover:text-blue-700 hover:border-blue-700"
-					const active =
-						"active:bg-blue-200 active:text-blue-900 active:outline-blue-900"
-					return `${inactive} ${hover} ${active}`
-				}
-				case "green": {
-					const inactive =
-						"bg-green-50 text-green-800 outline outline-green-800 outline-1"
-					const hover =
-						"hover:bg-green-100 hover:text-green-800 hover:outline-green-800"
-					const active =
-						"active:bg-green-200 active:text-green-900 active:outline-green-900"
-					return `${inactive} ${hover} ${active}`
-				}
-				case "red": {
-					const inactive =
-						"bg-red-50 text-red-600 outline outline-red-600 outline-1"
-					const hover =
-						"hover:bg-red-100 hover:text-red-700 hover:outline-red-700"
-					const active =
-						"active:bg-red-200 active:text-red-900 active:outline-red-900"
-					return `${inactive} ${hover} ${active}`
-				}
-				case "orange": {
-					const inactive =
-						"bg-orange-50 text-orange-700 outline outline-orange-700 outline-1"
-					const hover =
-						"hover:bg-orange-100 hover:text-orange-700 hover:outline-orange-700"
-					const active =
-						"active:bg-orange-200 active:text-orange-900 active:outline-orange-900"
-					return `${inactive} ${hover} ${active}`
-				}
-				default: {
-					const inactive =
-						"bg-neutral-150 text-neutral-700 outline outline-neutral-700 outline-1"
-					const hover = "hover:bg-neutral-200"
-					const active =
-						"active:bg-neutral-300 active:text-neutral-900 active:outline-neutral-900"
-					return `${inactive} ${hover} ${active}`
-				}
-			}
-		}
 		case "ghost": {
 			switch (color) {
 				case "blue":
@@ -310,20 +254,7 @@ const getVariantAndColorClasses = (
 					return "text-neutral-900 hover:bg-neutral-200 hover:text-neutral-900 active:bg-neutral-300 active:text-neutral-900"
 			}
 		}
-		case "round": {
-			switch (color) {
-				case "blue":
-					return "bg-blue-500 text-blue-50 hover:bg-blue-400 active:bg-blue-600"
-				case "green":
-					return "bg-green-700 text-green-50 hover:bg-green-400 active:bg-green-800"
-				case "red":
-					return "bg-red-500 text-red-50 hover:bg-red-300 active:bg-red-700"
-				case "orange":
-					return "bg-orange-500 text-orange-50 hover:bg-orange-400 active:bg-orange-600"
-				default:
-					return "bg-neutral-800 text-neutral-100 hover:bg-neutral-500 active:bg-neutral-800"
-			}
-		}
+
 		default: {
 			return ""
 		}
@@ -347,6 +278,7 @@ const getIconFill = (
 						"fill-blue-700",
 						"fill-blue-900"
 					)
+
 				case "green":
 					return determineIconFill(
 						isMouseOver,
@@ -355,6 +287,7 @@ const getIconFill = (
 						"fill-green-800",
 						"fill-green-900"
 					)
+
 				case "red":
 					return determineIconFill(
 						isMouseOver,
@@ -363,6 +296,7 @@ const getIconFill = (
 						"fill-red-700",
 						"fill-red-900"
 					)
+
 				case "orange":
 					return determineIconFill(
 						isMouseOver,
@@ -371,6 +305,7 @@ const getIconFill = (
 						"fill-orange-800",
 						"fill-orange-900"
 					)
+
 				default:
 					return determineIconFill(
 						isMouseOver,
@@ -381,50 +316,7 @@ const getIconFill = (
 					)
 			}
 		}
-		case "outlined": {
-			switch (color) {
-				case "blue":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-blue-600",
-						"fill-blue-700",
-						"fill-blue-900"
-					)
-				case "green":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-green-800",
-						"fill-green-800",
-						"fill-green-900"
-					)
-				case "red":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-red-600",
-						"fill-red-700",
-						"fill-red-900"
-					)
-				case "orange":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-orange-700",
-						"fill-orange-700",
-						"fill-orange-900"
-					)
-				default:
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-neutral-700",
-						"fill-neutral-700",
-						"fill-neutral-900"
-					)
-			}
-		}
+
 		case "ghost": {
 			switch (color) {
 				case "blue":
@@ -435,6 +327,7 @@ const getIconFill = (
 						"fill-blue-500",
 						"fill-blue-700"
 					)
+
 				case "green":
 					return determineIconFill(
 						isMouseOver,
@@ -443,6 +336,7 @@ const getIconFill = (
 						"fill-green-800",
 						"fill-green-900"
 					)
+
 				case "red":
 					return determineIconFill(
 						isMouseOver,
@@ -451,6 +345,7 @@ const getIconFill = (
 						"fill-red-700",
 						"fill-red-900"
 					)
+
 				case "orange":
 					return determineIconFill(
 						isMouseOver,
@@ -459,6 +354,7 @@ const getIconFill = (
 						"fill-orange-700",
 						"fill-orange-900"
 					)
+
 				default:
 					return determineIconFill(
 						isMouseOver,
@@ -469,50 +365,7 @@ const getIconFill = (
 					)
 			}
 		}
-		case "round": {
-			switch (color) {
-				case "blue":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-blue-50",
-						"fill-blue-50",
-						"fill-blue-50"
-					)
-				case "green":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-green-50",
-						"fill-green-50",
-						"fill-green-50"
-					)
-				case "red":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-red-50",
-						"fill-red-50",
-						"fill-red-50"
-					)
-				case "orange":
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-orange-50",
-						"fill-orange-50",
-						"fill-orange-50"
-					)
-				default:
-					return determineIconFill(
-						isMouseOver,
-						isMouseDown,
-						"fill-neutral-100",
-						"fill-neutral-100",
-						"fill-neutral-100"
-					)
-			}
-		}
+
 		default: {
 			return "fill-neutral-100"
 		}

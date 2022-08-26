@@ -7,11 +7,7 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({ children, className }) => {
 	return (
-		<div
-			className={twMerge(
-				`bg-neutral-150 border-1 rounded-lg p-12 border-neutral-200  ${className}`
-			)}
-		>
+		<div className={twMerge(`rounded-lg p-12 ${className}`)}>
 			{children}
 		</div>
 	)
