@@ -1,8 +1,8 @@
 import React from "react"
 import { Heading, Vertical, Text } from "./components"
-import ShowcaseButtons from "./showCase/ShowcaseButtons"
 import ShowcaseForm from "./showCase/ShowcaseForm"
 import ShowcaseIcons from "./showCase/ShowcaseIcons"
+import ShowcaseTypography from "./showCase/ShowcaseTypography"
 
 const App = () => {
 	return (
@@ -12,11 +12,18 @@ const App = () => {
 					<Heading className="text-6xl">
 						Portods<span className="text-orange-500">.</span>
 					</Heading>
-					<Text className="text-neutral-800">Component library</Text>
+					<Text className="text-neutral-800 text-lg">
+						A Component library
+					</Text>
+					<Text className="text-neutral-600">
+						Developed by Ole Walberg
+					</Text>
 				</Vertical>
-				<ShowcaseForm />
-				<ShowcaseButtons />
-				<ShowcaseIcons />
+				<Vertical className="gap-24">
+					<ShowcaseTypography />
+					<ShowcaseForm />
+					<ShowcaseIcons />
+				</Vertical>
 			</Vertical>
 		</Vertical>
 	)

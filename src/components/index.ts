@@ -7,6 +7,7 @@ import Checkbox from "./form/Checkbox/Checkbox"
 
 //Typography
 import Heading from "./typography/Heading"
+import Subtitle from "./typography/Subtitle"
 import Text from "./typography/Text"
 import Label from "./typography/Label"
 import Helper from "./typography/Helper"
@@ -16,6 +17,7 @@ import Vertical from "./layout/Vertical"
 import Horizontal from "./layout/Horizontal"
 import Grid from "./layout/Grid"
 import GridItem from "./layout/GridItem"
+import Container from "./layout/Container"
 
 //Icons
 import IconContainer from "./icons/IconContainer"
@@ -39,6 +41,7 @@ export {
 	//Typography
 	Heading,
 	Text,
+	Subtitle,
 	Label,
 	Helper,
 
@@ -47,6 +50,7 @@ export {
 	Horizontal,
 	Grid,
 	GridItem,
+	Container,
 
 	//Icons
 	IconContainer,

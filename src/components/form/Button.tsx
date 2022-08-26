@@ -40,8 +40,8 @@ interface ButtonProps {
 	className?: string
 	variant?: ButtonVariant
 	color?: ButtonColor
-	LeftIcon?: React.ReactNode
-	RightIcon?: React.ReactNode
+	leftIcon?: React.ReactNode
+	rightIcon?: React.ReactNode
 	size?: ButtonSize
 	align?: ButtonAlign
 	onClick?: () => void
@@ -63,8 +63,8 @@ const Button: React.FC<ButtonProps> = ({
 	className,
 	variant = "primary",
 	color = "neutral",
-	LeftIcon,
-	RightIcon,
+	leftIcon,
+	rightIcon,
 	size = "md",
 	align = "center",
 	onClick,
@@ -95,7 +95,7 @@ const Button: React.FC<ButtonProps> = ({
 					${getGapSize(size)}
 				`}
 			>
-				{LeftIcon && (
+				{leftIcon && (
 					<IconContainer
 						className={getIconFill(
 							variant,
@@ -105,13 +105,13 @@ const Button: React.FC<ButtonProps> = ({
 						)}
 						size={getIconSize(size)}
 					>
-						{LeftIcon}
+						{leftIcon}
 					</IconContainer>
 				)}
 				<Text className="leading-none mt-1 font-primary">
 					{children}
 				</Text>
-				{RightIcon && (
+				{rightIcon && (
 					<IconContainer
 						className={getIconFill(
 							variant,
@@ -121,7 +121,7 @@ const Button: React.FC<ButtonProps> = ({
 						)}
 						size={getIconSize(size)}
 					>
-						{RightIcon}
+						{rightIcon}
 					</IconContainer>
 				)}
 			</Horizontal>
