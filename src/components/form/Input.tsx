@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge"
-import IconContainer from "../icons/IconContainer"
+import IconContainer from "../media/icons/IconContainer"
 
 const SIZE_SM = `px-3 pt-1 pb-0.5 text-sm`
 const SIZE_SM_LEFT_ICON = `pl-8 pr-3 pt-1 pb-0.5 text-sm`

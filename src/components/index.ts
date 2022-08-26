@@ -19,18 +19,19 @@ import Grid from "./layout/Grid"
 import GridItem from "./layout/GridItem"
 import Container from "./layout/Container"
 
-//Icons
-import IconContainer from "./icons/IconContainer"
-import IconAnalytics from "./icons/IconAnalytics"
-import IconExit from "./icons/IconExit"
-import IconHome from "./icons/IconHome"
-import IconLock from "./icons/IconLock"
-import IconMail from "./icons/IconMail"
-import IconProfileDocument from "./icons/IconProfileDocument"
-import IconSearch from "./icons/IconSearch"
-import IconSmiley from "./icons/IconSmiley"
-import IconTrash from "./icons/IconTrash"
-import IconCheck from "./icons/IconCheck"
+//Media
+import Image from "./media/Image"
+import IconContainer from "./media/icons/IconContainer"
+import IconAnalytics from "./media/icons/IconAnalytics"
+import IconExit from "./media/icons/IconExit"
+import IconHome from "./media/icons/IconHome"
+import IconLock from "./media/icons/IconLock"
+import IconMail from "./media/icons/IconMail"
+import IconProfileDocument from "./media/icons/IconProfileDocument"
+import IconSearch from "./media/icons/IconSearch"
+import IconSmiley from "./media/icons/IconSmiley"
+import IconTrash from "./media/icons/IconTrash"
+import IconCheck from "./media/icons/IconCheck"
 
 export {
 	//Form
@@ -52,7 +53,8 @@ export {
 	GridItem,
 	Container,
 
-	//Icons
+	//Media
+	Image,
 	IconContainer,
 	IconAnalytics,
 	IconExit,
