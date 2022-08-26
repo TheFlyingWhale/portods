@@ -23,6 +23,7 @@ export type InputSize = "sm" | "md" | "lg"
 
 interface InputProps {
 	name?: string
+	containerClassName?: string
 	className?: string
 	placeholder?: string
 	size?: InputSize
@@ -32,6 +33,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({
+	containerClassName,
 	className,
 	placeholder,
 	name,
@@ -41,7 +43,11 @@ const Input: React.FC<InputProps> = ({
 	value,
 }) => {
 	return (
-		<div className="mt-1 relative rounded-md shadow-sm">
+		<div
+			className={twMerge(
+				`mt-1 relative rounded-md ${containerClassName}`
+			)}
+		>
 			{leftIcon && (
 				<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 					<IconContainer

@@ -8,6 +8,7 @@ import {
 	Horizontal,
 	Button,
 	IconClipboard,
+	Link,
 } from "../../components"
 
 const ShowcaseDocumentation = () => {
@@ -16,7 +17,7 @@ const ShowcaseDocumentation = () => {
 	}
 
 	const copyInstallTailwind = () => {
-		navigator.clipboard.writeText("npm install tailwindcss")
+		navigator.clipboard.writeText("npm install -D tailwindcss")
 	}
 
 	return (
@@ -43,11 +44,21 @@ const ShowcaseDocumentation = () => {
 			</Vertical>
 			<Vertical className="gap-2">
 				<Subtitle size="lg">Expand with tailwindcss</Subtitle>
-				<Text>Install tailwind via npm</Text>
+				<Text>Install tailwindcss via npm</Text>
+				<Text>
+					For detailed documentation and configuration visit{" "}
+					<Link
+						target="_blank"
+						href="https://tailwindcss.com/docs/installation"
+					>
+						tailwindcss
+					</Link>{" "}
+					website
+				</Text>
 				<Container className="bg-orange-900 rounded-xl p-4">
 					<Horizontal className="justify-between items-center">
 						<Text className="text-neutral-100 font-mono">
-							$ npm install tailwindcss
+							$ npm install -D tailwindcss
 						</Text>
 						<Button
 							size="sm"

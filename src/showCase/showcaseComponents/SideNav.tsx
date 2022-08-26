@@ -19,9 +19,6 @@ const SideNav = () => {
 		<nav className="w-full">
 			<ul className="flex flex-col gap-3">
 				<li>
-					<Input placeholder="Quick search" />
-				</li>
-				<li>
 					<_Link to="/">
 						<Button
 							variant={path === "/" ? "primary" : "ghost"}

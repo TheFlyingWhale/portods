@@ -13,7 +13,7 @@ const Showcase = () => {
 					<GridItem className="pr-6 pt-6">
 						<SideNav />
 					</GridItem>
-					<GridItem className="col-span-4 py-6 overflow-y-scroll overflow-x-hidden justify-center">
+					<GridItem className="col-span-4 py-6 pb-[250px] overflow-y-scroll overflow-x-hidden justify-center">
 						<Outlet />
 					</GridItem>
 				</Grid>
