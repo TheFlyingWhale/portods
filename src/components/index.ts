@@ -9,7 +9,7 @@ import Checkbox from "./form/Checkbox/Checkbox"
 import Heading from "./typography/Heading"
 import Text from "./typography/Text"
 import Label from "./typography/Label"
-import HelperText from "./typography/Helper"
+import Helper from "./typography/Helper"
 
 //Layout
 import Vertical from "./layout/Vertical"
@@ -40,7 +40,7 @@ export {
 	Heading,
 	Text,
 	Label,
-	HelperText,
+	Helper,
 
 	//Layout
 	Vertical,

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import {
 	Checkbox,
 	Heading,
-	HelperText,
+	Helper,
 	Horizontal,
 	IconSearch,
 	Input,
@@ -75,9 +75,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="sm">
+								<Helper size="sm">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 							<Vertical className="w-full">
 								<Label
@@ -94,9 +94,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="sm">
+								<Helper size="sm">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 						</Horizontal>
 						<Horizontal className="gap-3">
@@ -114,9 +114,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="md">
+								<Helper size="md">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 							<Vertical className="w-full">
 								<Label
@@ -133,9 +133,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="md">
+								<Helper size="md">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 						</Horizontal>
 						<Horizontal className="gap-3">
@@ -153,9 +153,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="lg">
+								<Helper size="lg">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 							<Vertical className="w-full">
 								<Label
@@ -172,9 +172,9 @@ const ShowcaseForm = () => {
 									value={input}
 									onChange={handleChange}
 								/>
-								<HelperText size="lg">
+								<Helper size="lg">
 									Use this input to change the subtitle
-								</HelperText>
+								</Helper>
 							</Vertical>
 						</Horizontal>
 					</Vertical>
