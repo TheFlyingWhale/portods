@@ -10,7 +10,15 @@ interface TextProps {
 }
 
 const Text: React.FC<TextProps> = ({ children, className }) => {
-	return <p className={twMerge(` ${className}`)}>{children}</p>
+	return (
+		<p
+			className={twMerge(
+				`font-secondary font-normal tracking-wide ${className}`
+			)}
+		>
+			{children}
+		</p>
+	)
 }
 
 export default Text

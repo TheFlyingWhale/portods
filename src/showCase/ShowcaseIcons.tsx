@@ -1,53 +1,52 @@
-import React from "react";
+import React from "react"
 import {
-    Heading,
-    Vertical,
-    Horizontal,
-    IconContainer,
-    IconLock,
-    IconExit,
-    IconHome,
-    IconMail,
-    IconProfileDocument,
-    IconSearch,
-    IconSmiley,
-    IconTrash,
-    IconAnalytics,
-    IconCheck,
-} from "../components";
+	Heading,
+	Vertical,
+	Horizontal,
+	IconLock,
+	IconExit,
+	IconHome,
+	IconMail,
+	IconProfileDocument,
+	IconSearch,
+	IconSmiley,
+	IconTrash,
+	IconAnalytics,
+	IconCheck,
+} from "../components"
 
-const ICON_COLOR = "fill-orange-500";
+const ICON_COLOR = "fill-orange-500"
 
 const ShowcaseIcons = () => {
-    const icons = [
-        IconLock,
-        IconExit,
-        IconHome,
-        IconMail,
-        IconProfileDocument,
-        IconSearch,
-        IconSmiley,
-        IconTrash,
-        IconAnalytics,
-        IconCheck,
-    ];
+	const icons = [
+		IconLock,
+		IconExit,
+		IconHome,
+		IconMail,
+		IconProfileDocument,
+		IconSearch,
+		IconSmiley,
+		IconTrash,
+		IconAnalytics,
+		IconCheck,
+	]
 
-    return (
-        <Vertical className="gap-3 items-center">
-            <Heading as="h2">Icons</Heading>
-            <Horizontal className="gap-3">
-                {icons.map((Icon) => {
-                    return (
-                        <Icon
-                            className={ICON_COLOR}
-                            size={25}
-                            contained={true}
-                        />
-                    );
-                })}
-            </Horizontal>
-        </Vertical>
-    );
-};
+	return (
+		<Vertical className="gap-3 items-center">
+			<Heading as="h2">Icons</Heading>
+			<Horizontal className="gap-3">
+				{icons.map((Icon) => {
+					return (
+						<Icon
+							className={ICON_COLOR}
+							size={25}
+							contained={true}
+						/>
+					)
+				})}
+			</Horizontal>
+		</Vertical>
+	)
+}
 
-export default ShowcaseIcons;
+export default ShowcaseIcons

@@ -2,11 +2,11 @@ import { twMerge } from "tailwind-merge"
 import IconContainer from "../icons/IconContainer"
 
 const SIZE_SM = `px-3 pt-1 pb-0.5 text-sm`
-const SIZE_SM_LEFT_ICON = `pl-7 pr-3 pt-1 pb-0.5 text-sm`
-const SIZE_MD = `px-3 pt-1.5 pb-1 text-base`
-const SIZE_MD_LEFT_ICON = `pl-8 pr-3 pt-1.5 pb-1 text-base`
-const SIZE_LG = `px-3 pt-2 pb-1.5 text-lg tracking-wide`
-const SIZE_LG_LEFT_ICON = `pl-9 pr-3 pt-2 pb-1.5 text-lg tracking-wide`
+const SIZE_SM_LEFT_ICON = `pl-8 pr-3 pt-1 pb-0.5 text-sm`
+const SIZE_MD = `px-4 pt-1.5 pb-1 text-base`
+const SIZE_MD_LEFT_ICON = `pl-9 pr-3 pt-1.5 pb-1 text-base`
+const SIZE_LG = `px-5 pt-2 pb-1.5 text-lg tracking-wide`
+const SIZE_LG_LEFT_ICON = `pl-10 pr-5 pt-2 pb-1.5 text-lg tracking-wide`
 
 const getInputSize = (size: InputSize, leftIcon: boolean) => {
 	if (size === "sm" && !leftIcon) return SIZE_SM

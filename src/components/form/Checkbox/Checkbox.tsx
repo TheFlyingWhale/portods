@@ -1,4 +1,4 @@
-import { Horizontal, Label } from "../.."
+import { Horizontal, Label, Vertical, Text } from "../.."
 
 const getCheckboxSize = (size: string) => {
 	if (size === "sm") return "w-3.5 h-3.5"
@@ -24,40 +24,61 @@ const getCheckIconSize = (size: string) => {
 	return "mdCheckIcon"
 }
 
+const getHelperTextSize = (size: string) => {
+	if (size === "sm") return "text-xs"
+
+	if (size === "lg") return "text-base"
+
+	return "text-sm"
+}
+
+const getGap = (size: string) => {
+	if (size === "sm") return "gap-2"
+
+	if (size === "lg") return "gap-4"
+
+	return "gap-3"
+}
+
 interface CheckboxProps {
 	name?: string
 	size?: "sm" | "md" | "lg"
+	helperText?: string
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ name, size = "md" }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+	name,
+	size = "md",
+	helperText,
+}) => {
 	return (
 		<Horizontal
-			className="
-                gap-2 
-                cursor-pointer 
-                items-center 
-                text-neutral-700 
-                font-medium 
-                hover:text-neutral-800
-            "
+			className={`
+				${getGap(size)}
+				cursor-pointer 
+				items-center 
+				text-neutral-700 
+				font-medium 
+				hover:text-neutral-800
+			`}
 		>
 			<input
 				className={`
-                    appearance-none cursor-pointer rounded-sm 
-                    border 
-                    border-neutral-500 
-                    bg-blue-50 
-                    
-                    focus:ring-2
-                    focus:ring-offset-1
-                    focus:ring-blue-200
-                    
-                    hover:border-blue-500
-                    
-                    active:bg-blue-300 
+					appearance-none cursor-pointer rounded-sm 
+					border 
+					border-neutral-500 
+					bg-blue-50 
+					
+					focus:ring-2
+					focus:ring-offset-1
+					focus:ring-blue-200
+					
+					hover:border-blue-500
+					
+					active:bg-blue-300 
 
-                    checked:border-blue-600 
-                    checked:bg-blue-500 
+					checked:border-blue-600 
+					checked:bg-blue-500 
                     ${getCheckIconSize(size)} ${getCheckboxSize(size)}`}
 				type="checkbox"
 				name={name}
@@ -65,9 +86,22 @@ const Checkbox: React.FC<CheckboxProps> = ({ name, size = "md" }) => {
 			/>
 			<Label
 				htmlFor={name}
-				className={`cursor-pointer ${getLabelSize(size)}`}
+				className={`cursor-pointer font-secondary font-normal ${getLabelSize(
+					size
+				)}`}
 			>
-				{name}
+				<Vertical>
+					{name}
+					{helperText && (
+						<Text
+							className={`text-neutral-600 ${getHelperTextSize(
+								size
+							)}`}
+						>
+							{helperText}
+						</Text>
+					)}
+				</Vertical>
 			</Label>
 		</Horizontal>
 	)

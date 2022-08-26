@@ -108,7 +108,9 @@ const Button: React.FC<ButtonProps> = ({
 						{LeftIcon}
 					</IconContainer>
 				)}
-				<Text className="leading-none mt-1">{children}</Text>
+				<Text className="leading-none mt-1 font-primary">
+					{children}
+				</Text>
 				{RightIcon && (
 					<IconContainer
 						className={getIconFill(
@@ -132,10 +134,10 @@ export default Button
 const BORDER_RADIUS = "rounded-md"
 const FONT = "font-primary font-medium"
 
-const SIZE_EXTRA_SMALL = `px-2 py-1.5 text-xs`
-const SIZE_SMALL = `px-3 py-2 text-sm`
-const SIZE_MEDIUM = `px-4 py-2.5 text-base`
-const SIZE_LARGE = `px-5 py-3 text-xl`
+const SIZE_EXTRA_SMALL = `px-4 py-1.5 text-xs`
+const SIZE_SMALL = `px-5 py-2 text-sm`
+const SIZE_MEDIUM = `px-6 py-2.5 text-base`
+const SIZE_LARGE = `px-7 py-3 text-xl`
 
 const ICON_SIZE_EXTRA_SMALL = 10
 const ICON_SIZE_SMALL = 13
