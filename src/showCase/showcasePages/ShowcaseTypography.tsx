@@ -7,7 +7,7 @@ import {
 	Text,
 	Label,
 	Helper,
-} from "../components"
+} from "../../components"
 
 const ShowcaseTypography = () => {
 	return (

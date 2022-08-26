@@ -1,5 +1,8 @@
 import "../index.css"
 
+//Navigation
+import Link from "./navigation/Link"
+
 //Form
 import Button from "./form/Button"
 import Input from "./form/Input"
@@ -32,8 +35,22 @@ import IconSearch from "./media/icons/IconSearch"
 import IconSmiley from "./media/icons/IconSmiley"
 import IconTrash from "./media/icons/IconTrash"
 import IconCheck from "./media/icons/IconCheck"
+import IconInput from "./media/icons/IconInput"
+import IconTypography from "./media/icons/IconTypography"
+import IconNavigation from "./media/icons/IconNavigation"
+import IconMedia from "./media/icons/IconMedia"
+import IconLayout from "./media/icons/IconLayout"
+import IconChevronRight from "./media/icons/IconChevronRight"
+import IconChevronLeft from "./media/icons/IconChevronLeft"
+import IconChevronUp from "./media/icons/IconChevronUp"
+import IconChevronDown from "./media/icons/IconChevronDown"
+import IconBook from "./media/icons/IconBook"
+import IconClipboard from "./media/icons/IconClipboard"
 
 export {
+	//Navigation
+	Link,
+
 	//Form
 	Button,
 	Input,
@@ -66,4 +83,15 @@ export {
 	IconSmiley,
 	IconTrash,
 	IconCheck,
+	IconInput,
+	IconTypography,
+	IconNavigation,
+	IconMedia,
+	IconLayout,
+	IconChevronRight,
+	IconChevronLeft,
+	IconChevronUp,
+	IconChevronDown,
+	IconBook,
+	IconClipboard,
 }

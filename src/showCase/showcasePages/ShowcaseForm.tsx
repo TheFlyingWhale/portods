@@ -13,11 +13,11 @@ import {
 	Subtitle,
 	Button,
 	IconLock,
-} from "../components"
+} from "../../components"
 
 const ShowcaseForm = () => {
 	return (
-		<Vertical className="w-full gap-6">
+		<Vertical className="w-full h-fit gap-6">
 			<Heading>Form</Heading>
 			<CheckboxSection />
 			<InputSection />
