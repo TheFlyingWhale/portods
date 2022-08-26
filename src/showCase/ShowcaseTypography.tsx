@@ -36,15 +36,17 @@ const HeadingSection = () => {
 					>
 						Props
 					</Subtitle>
-					<Text className="text-neutral-700">as, className</Text>
+					<Text className="text-neutral-700">
+						as, className, size
+					</Text>
 				</Vertical>
 				<Vertical className="gap-3">
-					<Heading as="h1">Heading as h1</Heading>
-					<Heading as="h2">Heading as h2</Heading>
-					<Heading as="h3">Heading as h3</Heading>
-					<Heading as="h4">Heading as h4</Heading>
-					<Heading as="h5">Heading as h5</Heading>
-					<Heading as="h6">Heading as h6</Heading>
+					<Heading as="h1">Heading as h1 size 4xl</Heading>
+					<Heading as="h2">Heading as h2 size 3xl</Heading>
+					<Heading as="h3">Heading as h3 size 2xl</Heading>
+					<Heading as="h4">Heading as h4 size xl</Heading>
+					<Heading as="h5">Heading as h5 size lg</Heading>
+					<Heading as="h6">Heading as h6 size base</Heading>
 				</Vertical>
 			</Vertical>
 		</Container>
