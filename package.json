@@ -1,6 +1,6 @@
 {
 	"name": "portods",
-	"version": "0.0.42",
+	"version": "0.0.41",
 	"description": "Design system and component library",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",
@@ -14,7 +14,8 @@
 		"build": "npm run build:esm && npm run build:cjs && npm run build:tailwindcss",
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir lib/cjs",
-		"build:tailwindcss": "npx tailwindcss -i ./src/index.css -o ./lib/index.css"
+		"build:tailwindcss": "npx tailwindcss -i ./src/index.css -o ./lib/index.css",
+		"build:documentation": "react-scripts build"
 	},
 	"author": "Ole Walberg",
 	"license": "ISC",
