@@ -34,11 +34,11 @@ const Header = () => {
 					</Link>
 				</GridItem>
 				<GridItem>
-					<Input
+					{/* <Input
 						leftIcon={<IconSearch />}
 						placeholder="Quick search"
 						containerClassName="w-full"
-					/>
+					/> */}
 				</GridItem>
 			</Grid>
 		</header>

@@ -1,42 +1,13 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ["./src/**/*.{js, jsx, ts,tsx, css}"],
 	theme: {
 		fontFamily: {
-			primary: [
-				"Josefin Sans",
-				"ui-sans-serif",
-				"system-ui",
-				"-apple-system",
-				"BlinkMacSystemFont",
-				"Segoe UI",
-				"Roboto",
-				"Helvetica Neue",
-				"Arial",
-				"Noto Sans",
-				"sans-serif",
-				"Apple Color Emoji",
-				"Segoe UI Emoji",
-				"Segoe UI Symbol",
-				"Noto Color Emoji",
-			],
-			secondary: [
-				"Heebo",
-				"ui-sans-serif",
-				"system-ui",
-				"-apple-system",
-				"BlinkMacSystemFont",
-				"Segoe UI",
-				"Roboto",
-				"Helvetica Neue",
-				"Arial",
-				"Noto Sans",
-				"sans-serif",
-				"Apple Color Emoji",
-				"Segoe UI Emoji",
-				"Segoe UI Symbol",
-				"Noto Color Emoji",
-			],
+			primary: ["Josefin Sans", ...defaultTheme.fontFamily.sans],
+			secondary: ["Heebo", ...defaultTheme.fontFamily.serif],
+			mono: ["Space Mono", ...defaultTheme.fontFamily.mono],
 		},
 		colors: {
 			neutral: {

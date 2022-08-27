@@ -25,11 +25,57 @@ import {
 	IconClipboard,
 	GridItem,
 	Grid,
+	Divider,
+	Subtitle,
+	Text,
+	Image,
+	Container,
 } from "../../components"
+import CodeSnippet from "../showcaseComponents/CodeSnippet"
+import ImportSyntax from "../showcaseComponents/ImportSyntax"
+import Props from "../showcaseComponents/Props"
 
 const ICON_COLOR = "fill-orange-500"
 
 const ShowcaseIcons = () => {
+	return (
+		<Vertical className="w-full h-fit gap-12">
+			<Heading>Form</Heading>
+			<Divider />
+			<IconSection />
+			<Divider />
+			<IconContainerSection />
+			<Divider />
+			<ImageSection />
+		</Vertical>
+	)
+}
+
+export default ShowcaseIcons
+
+const IconContainerSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">IconContainer</Heading>
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props props={["className", "size"]} />
+
+				<Text>Used to wrap icons</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["IconContainer"]} />
+		</Vertical>
+	)
+}
+
+const IconSection = () => {
 	const icons = [
 		IconLock,
 		IconExit,
@@ -55,14 +101,31 @@ const ShowcaseIcons = () => {
 	]
 
 	return (
-		<Vertical className="gap-3 w-full">
-			<Heading>Icons</Heading>
-			<Grid className="grid-cols-12 gap-12">
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">Icons</Heading>
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props props={["className", "size", "contained"]} />
+
+				<Text>
+					Icons consists of paths. If contained the path will be
+					wrapped inside a <CodeSnippet>IconContainer</CodeSnippet>
+				</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["Icon[Name]"]} />
+
+			<Grid className="grid-cols-12 gap-12 w-full mt-6">
 				{icons.map((Icon, index) => {
 					return (
-						<GridItem>
+						<GridItem key={index}>
 							<Icon
-								key={index}
 								className={ICON_COLOR}
 								size={25}
 								contained={true}
@@ -75,4 +138,35 @@ const ShowcaseIcons = () => {
 	)
 }
 
-export default ShowcaseIcons
+const ImageSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">Image</Heading>
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props props={["className", "src", "alt"]} />
+			</Vertical>
+
+			<ImportSyntax componentNames={["Image"]} />
+
+			<Vertical className="gap-3">
+				<Text>
+					This example image is wrapped with a{" "}
+					<CodeSnippet>{"Container"}</CodeSnippet>
+				</Text>
+				<Container className="bg-transparent border-0 flex items-center overflow-hidden p-0">
+					<Image
+						src="https://images.pexels.com/photos/12225082/pexels-photo-12225082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+						alt="example image"
+					/>
+				</Container>
+			</Vertical>
+		</Vertical>
+	)
+}

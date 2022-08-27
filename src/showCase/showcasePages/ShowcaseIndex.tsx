@@ -76,6 +76,24 @@ const ShowcaseIndex = () => {
 					</Text>
 				</Vertical>
 			</Container>
+			<Container className="flex items-center p-24 bg-orange-500 border-0">
+				<Vertical className="w-full items-center gap-6">
+					<Heading
+						size="6xl"
+						className="text-center leading-tight text-neutral-100"
+					>
+						Developer Experience
+					</Heading>
+					<Text className="text-neutral-100 text-lg text-center">
+						Easily see the structure of your code
+					</Text>
+					<Text className="text-neutral-100 text-lg text-center">
+						It can become cumbersome to study code you've not
+						visited in a long time. All components are named for
+						easy understanding.
+					</Text>
+				</Vertical>
+			</Container>
 		</Vertical>
 	)
 }

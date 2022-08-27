@@ -21,6 +21,7 @@ import Horizontal from "./layout/Horizontal"
 import Grid from "./layout/Grid"
 import GridItem from "./layout/GridItem"
 import Container from "./layout/Container"
+import Divider from "./layout/Divider"
 
 //Media
 import Image from "./media/Image"
@@ -69,6 +70,7 @@ export {
 	Grid,
 	GridItem,
 	Container,
+	Divider,
 
 	//Media
 	Image,
