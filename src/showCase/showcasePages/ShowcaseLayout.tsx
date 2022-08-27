@@ -32,6 +32,9 @@ const ShowcaseLayout = () => {
 			<Divider />
 
 			<GridItemSection />
+			<Divider />
+
+			<DividerSection />
 		</Vertical>
 	)
 }
@@ -215,6 +218,35 @@ const GridItemSection = () => {
 						Grid Item
 					</GridItem>
 				</Grid>
+			</Vertical>
+		</Vertical>
+	)
+}
+
+const DividerSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">Divider</Heading>
+
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props props={["className"]} />
+
+				<Text>A vertical line used to divide content</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["Divider"]} />
+
+			<Vertical className="w-full">
+				<Container className="bg-transparent border-1 border-neutral-200 flex justify-center">
+					<Divider />
+				</Container>
 			</Vertical>
 		</Vertical>
 	)
