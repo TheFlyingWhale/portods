@@ -32,7 +32,7 @@ const Header = () => {
 								</Heading>
 							</Horizontal>
 						</Link>
-						<Text className="py-2 px-3 text-neutral-100 text-xs bg-orange-500 rounded-full">
+						<Text className="py-1.5 px-3 text-neutral-100 text-xs bg-orange-500 rounded-full">
 							Alpha 0.0.41
 						</Text>
 					</Horizontal>
