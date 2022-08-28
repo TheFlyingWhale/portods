@@ -19,7 +19,7 @@ const CodeSyntax: React.FC<CodeSyntaxProps> = ({ clipboardSyntax }) => {
 	}
 
 	return (
-		<Container className="bg-blue-900 border-0 rounded-xl p-4">
+		<Container className="bg-blue-900 border-0 rounded-lg p-4">
 			<Horizontal className="justify-between items-center">
 				<Text className="text-neutral-100 font-mono">
 					{clipboardSyntax}

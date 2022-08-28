@@ -21,7 +21,7 @@ const ImportSyntax: React.FC<ImportSyntaxProps> = ({ componentNames }) => {
 	}
 
 	return (
-		<Container className="bg-blue-900 border-0 w-full rounded-xl p-4">
+		<Container className="bg-blue-900 border-0 w-full rounded-lg p-4">
 			<Horizontal className="justify-between items-center">
 				<Text className="text-neutral-100 font-mono">
 					<span className="text-orange-300">import</span> {"{ "}

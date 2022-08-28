@@ -40,7 +40,7 @@ const ICON_COLOR = "fill-orange-500"
 const ShowcaseIcons = () => {
 	return (
 		<Vertical className="w-full h-fit gap-12">
-			<Heading>Form</Heading>
+			<Heading>Media</Heading>
 			<Divider />
 			<IconSection />
 			<Divider />

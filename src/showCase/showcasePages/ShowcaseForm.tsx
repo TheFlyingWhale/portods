@@ -89,7 +89,7 @@ const InputSection = () => {
 				/>
 			</Vertical>
 
-			<ImportSyntax componentNames={["Checkbox"]} />
+			<ImportSyntax componentNames={["Input"]} />
 
 			<Vertical className="w-full gap-3">
 				<Horizontal className="gap-6 w-full">
@@ -98,16 +98,14 @@ const InputSection = () => {
 							htmlFor="mediumInput"
 							size="md"
 						>
-							Input
+							Label
 						</Label>
 						<Input
 							placeholder="Input"
 							name="mediumInput"
 							size="md"
 						/>
-						<Helper size="md">
-							Use this input to change the subtitle
-						</Helper>
+						<Helper size="md">Helper</Helper>
 					</Vertical>
 					<Vertical className="w-full">
 						<Label
@@ -117,14 +115,12 @@ const InputSection = () => {
 							Input with Icon
 						</Label>
 						<Input
-							placeholder="Input with icon"
+							placeholder="Search"
 							name="mediumInputWithIcon"
 							size="md"
 							leftIcon={<IconSearch />}
 						/>
-						<Helper size="md">
-							Use this input to change the subtitle
-						</Helper>
+						<Helper size="md">Find what you're looking for</Helper>
 					</Vertical>
 				</Horizontal>
 			</Vertical>
@@ -157,7 +153,7 @@ const AllButtonsSection = () => {
 				/>
 			</Vertical>
 
-			<ImportSyntax componentNames={["Checkbox"]} />
+			<ImportSyntax componentNames={["Button"]} />
 
 			<Grid className="grid-cols-5 gap-6">
 				<Button leftIcon={<IconLock />}>Primary</Button>
