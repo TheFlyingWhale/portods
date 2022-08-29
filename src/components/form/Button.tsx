@@ -66,7 +66,7 @@ const Button: React.FC<ButtonProps> = ({
 			className={twMerge(
 				`${getVariantAndColorClasses(variant, color)} ${getButtonSize(
 					size
-				)} ${FONT} ${BORDER_RADIUS} ${className}`
+				)} ${FONT} ${BORDER_RADIUS} ${className} transition-colors`
 			)}
 			onMouseOver={() => setIsMouseOver(true)}
 			onMouseLeave={() => setIsMouseOver(false)}
@@ -85,12 +85,12 @@ const Button: React.FC<ButtonProps> = ({
 			>
 				{leftIcon && (
 					<IconContainer
-						className={getIconFill(
+						className={`transition-colors ${getIconFill(
 							variant,
 							color,
 							isMouseOver,
 							isMouseDown
-						)}
+						)}`}
 						size={getIconSize(size)}
 					>
 						{leftIcon}
@@ -101,12 +101,12 @@ const Button: React.FC<ButtonProps> = ({
 				</Text>
 				{rightIcon && (
 					<IconContainer
-						className={getIconFill(
+						className={`transition-colors ${getIconFill(
 							variant,
 							color,
 							isMouseOver,
 							isMouseDown
-						)}
+						)}`}
 						size={getIconSize(size)}
 					>
 						{rightIcon}

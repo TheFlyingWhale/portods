@@ -34,7 +34,9 @@ const Radio: React.FC<RadioProps> = ({
 				id={id}
 				name={name}
 				type="radio"
-				className={twMerge(`hover:cursor-pointer ${className}`)}
+				className={twMerge(
+					`hover:cursor-pointer transition ${className}`
+				)}
 				value={value}
 				onChange={onChange && onChange}
 				checked={currentValue === value}

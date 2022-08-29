@@ -85,8 +85,6 @@ const RadioGroupSection = () => {
 }
 
 const RadioSection = () => {
-	const [value, setValue] = useState<string>("")
-
 	return (
 		<Vertical className="items-start w-full gap-6">
 			<Vertical>
@@ -122,7 +120,6 @@ const RadioSection = () => {
 			<Container className="w-full flex flex-col gap-3">
 				<RadioGroup
 					label="Select an option"
-					onChange={setValue}
 					direction="horizontal"
 					className="gap-2"
 					name="options"
@@ -156,10 +153,6 @@ const RadioSection = () => {
 						Option 4
 					</Radio>
 				</RadioGroup>
-
-				<Text>
-					Chosen value: {value ? value : "no value selected "}
-				</Text>
 			</Container>
 		</Vertical>
 	)
