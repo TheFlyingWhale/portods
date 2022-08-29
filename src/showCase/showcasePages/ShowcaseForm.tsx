@@ -141,6 +141,12 @@ const RadioSection = () => {
 					>
 						Option 3
 					</Radio>
+					<Radio
+						id="option4"
+						value="OPTION 4 VALUE"
+					>
+						Option 4
+					</Radio>
 				</RadioGroup>
 
 				<Text>
