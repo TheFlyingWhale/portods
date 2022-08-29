@@ -50,25 +50,28 @@ export default ShowcaseForm
 const RadioGroupSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Radio group</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props
-					props={[
-						"className",
-						"label",
-						"onChange",
-						"direction",
-						"name",
-						"defaultValue",
-					]}
-				/>
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props
+						props={[
+							"className",
+							"label",
+							"onChange",
+							"direction",
+							"name",
+							"defaultValue",
+						]}
+					/>
+				</Vertical>
 
 				<Text>
 					Provides a <CodeSnippet>Label</CodeSnippet> and wraps
@@ -87,18 +90,27 @@ const RadioGroupSection = () => {
 const RadioSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Radio</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props
-					props={["className", "id", "name", "value", "defaultValue"]}
-				/>
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props
+						props={[
+							"className",
+							"id",
+							"name",
+							"value",
+							"defaultValue",
+						]}
+					/>
+				</Vertical>
 
 				<Vertical className="gap-2">
 					<Text>
@@ -161,16 +173,24 @@ const RadioSection = () => {
 const CheckboxSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Checkbox</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props props={["name", "size", "helperText"]} />
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["name", "size", "helperText"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>input type="checkbox"</CodeSnippet>{" "}
+					element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Checkbox"]} />
@@ -191,25 +211,34 @@ const CheckboxSection = () => {
 const InputSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Input</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props
-					props={[
-						"className",
-						"name",
-						"placeholder",
-						"size",
-						"leftIcon",
-						"onChange",
-						"value",
-					]}
-				/>
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props
+						props={[
+							"className",
+							"name",
+							"placeholder",
+							"size",
+							"leftIcon",
+							"onChange",
+							"value",
+						]}
+					/>
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>input type="text"</CodeSnippet>{" "}
+					element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Input"]} />
@@ -254,26 +283,34 @@ const InputSection = () => {
 const AllButtonsSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Buttons</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props
-					props={[
-						"className",
-						"variant",
-						"color",
-						"LeftIcon",
-						"RightIcon",
-						"size",
-						"align",
-						"onClick",
-					]}
-				/>
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props
+						props={[
+							"className",
+							"variant",
+							"color",
+							"LeftIcon",
+							"RightIcon",
+							"size",
+							"align",
+							"onClick",
+						]}
+					/>
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>button</CodeSnippet> element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Button"]} />

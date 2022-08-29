@@ -9,6 +9,7 @@ import {
 	Helper,
 	Divider,
 } from "../../components"
+import CodeSnippet from "../showcaseComponents/CodeSnippet"
 import ImportSyntax from "../showcaseComponents/ImportSyntax"
 import Props from "../showcaseComponents/Props"
 
@@ -40,15 +41,23 @@ export default ShowcaseTypography
 const HeadingSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Heading</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className", "as", "size"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "as", "size"]} />
+				</Vertical>
+
+				<Text>
+					Provides <CodeSnippet>h1-6</CodeSnippet> elements
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Heading"]} />
@@ -68,15 +77,24 @@ const HeadingSection = () => {
 const SubtitleSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Subtitle</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className", "as", "size"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "as", "size"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>p</CodeSnippet> or{" "}
+					<CodeSnippet>h2-6</CodeSnippet> elements
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Subtitle"]} />
@@ -95,15 +113,23 @@ const SubtitleSection = () => {
 const TextSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Text</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>p</CodeSnippet> element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Text"]} />
@@ -118,15 +144,23 @@ const TextSection = () => {
 const LabelSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Label</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className", "htmlFor", "size"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "htmlFor", "size"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>label</CodeSnippet> element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Label"]} />
@@ -143,15 +177,23 @@ const LabelSection = () => {
 const HelperSection = () => {
 	return (
 		<Vertical className="gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Helper</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className", "size"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "size"]} />
+				</Vertical>
+
+				<Text>
+					Provides a styled <CodeSnippet>Text</CodeSnippet> element
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Helper"]} />

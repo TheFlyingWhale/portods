@@ -44,17 +44,19 @@ export default ShowcaseLayout
 const ContainerSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Container</Heading>
 
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
 
-				<Props props={["className"]} />
+					<Props props={["className"]} />
+				</Vertical>
 
 				<Text>
 					The container is a div with padding set to 12, give it a
@@ -76,17 +78,19 @@ const ContainerSection = () => {
 const HorizontalSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Horizontal</Heading>
 
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
 
-				<Props props={["className"]} />
+					<Props props={["className"]} />
+				</Vertical>
 
 				<Text>Horizontal is a div styled with flex and flex-row</Text>
 			</Vertical>
@@ -115,15 +119,20 @@ const HorizontalSection = () => {
 const VerticalSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Vertical</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className"]} />
+				</Vertical>
+
 				<Text>Horizontal is a div styled with flex and flex-col</Text>
 			</Vertical>
 
@@ -146,15 +155,20 @@ const VerticalSection = () => {
 const GridSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Grid</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className"]} />
+				</Vertical>
+
 				<Text>Grid is a div styled with grid</Text>
 			</Vertical>
 
@@ -183,15 +197,20 @@ const GridSection = () => {
 const GridItemSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">GridItem</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
-				<Props props={["className"]} />
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className"]} />
+				</Vertical>
+
 				<Text>GridItem is a div styled with flex</Text>
 			</Vertical>
 
@@ -226,17 +245,19 @@ const GridItemSection = () => {
 const DividerSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Divider</Heading>
 
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
 
-				<Props props={["className"]} />
+					<Props props={["className"]} />
+				</Vertical>
 
 				<Text>A vertical line used to divide content</Text>
 			</Vertical>

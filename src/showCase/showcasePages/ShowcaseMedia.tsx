@@ -56,16 +56,19 @@ export default ShowcaseIcons
 const IconContainerSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">IconContainer</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props props={["className", "size"]} />
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "size"]} />
+				</Vertical>
 
 				<Text>Used to wrap icons</Text>
 			</Vertical>
@@ -102,16 +105,19 @@ const IconSection = () => {
 
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Icons</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props props={["className", "size", "contained"]} />
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "size", "contained"]} />
+				</Vertical>
 
 				<Text>
 					Icons consists of paths. If contained the path will be
@@ -141,25 +147,33 @@ const IconSection = () => {
 const ImageSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
-			<Vertical>
+			<Vertical className="gap-3">
 				<Heading as="h3">Image</Heading>
-				<Subtitle
-					size="lg"
-					as="h4"
-				>
-					Props
-				</Subtitle>
 
-				<Props props={["className", "src", "alt"]} />
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["className", "src", "alt"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>img</CodeSnippet> element
+				</Text>
+
+				<Text>
+					This example image is wrapped with a{" "}
+					<CodeSnippet>{"Container"}</CodeSnippet>
+				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Image"]} />
 
 			<Vertical className="gap-3">
-				<Text>
-					This example image is wrapped with a{" "}
-					<CodeSnippet>{"Container"}</CodeSnippet>
-				</Text>
 				<Container className="bg-transparent border-0 flex items-center overflow-hidden p-0">
 					<Image
 						src="https://images.pexels.com/photos/12225082/pexels-photo-12225082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
