@@ -15,7 +15,10 @@ import {
 	Divider,
 	Horizontal,
 	Container,
+	RadioGroup,
+	Radio,
 } from "../../components"
+import CodeSnippet from "../showcaseComponents/CodeSnippet"
 import ImportSyntax from "../showcaseComponents/ImportSyntax"
 import Props from "../showcaseComponents/Props"
 
@@ -23,6 +26,10 @@ const ShowcaseForm = () => {
 	return (
 		<Vertical className="w-full h-fit gap-12">
 			<Heading>Form</Heading>
+			<Divider />
+			<RadioGroupSection />
+			<Divider />
+			<RadioSection />
 			<Divider />
 			<CheckboxSection />
 			<Divider />
@@ -34,6 +41,104 @@ const ShowcaseForm = () => {
 }
 
 export default ShowcaseForm
+
+const RadioGroupSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">Radio group</Heading>
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props
+					props={["className", "label", "onChange", "direction"]}
+				/>
+
+				<Text>
+					Provides a <CodeSnippet>Label</CodeSnippet> and wraps
+					provided <CodeSnippet>Radio</CodeSnippet> elements in either
+					an
+					<CodeSnippet>Horizontal</CodeSnippet> or{" "}
+					<CodeSnippet>Vertical</CodeSnippet> component
+				</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["RadioGroup"]} />
+		</Vertical>
+	)
+}
+
+const RadioSection = () => {
+	const [value, setValue] = useState("")
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setValue(e.target.value)
+	}
+
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical>
+				<Heading as="h3">Radio</Heading>
+				<Subtitle
+					size="lg"
+					as="h4"
+				>
+					Props
+				</Subtitle>
+
+				<Props
+					props={["className", "id", "name", "value", "children"]}
+				/>
+
+				<Text>
+					Provides a <CodeSnippet>{"input"}</CodeSnippet> linked with
+					a <CodeSnippet>{"Label"}</CodeSnippet>
+				</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["Radio"]} />
+
+			<Container className="w-full flex flex-col gap-3">
+				<Text>
+					Chosen value: {value ? value : "no value selected "}
+				</Text>
+
+				<RadioGroup
+					label="Select an option"
+					onChange={handleChange}
+					direction="horizontal"
+					className="gap-2"
+				>
+					<Radio
+						name="option"
+						id="option1"
+						value="OPTION 1 VALUE"
+					>
+						Option 1
+					</Radio>
+					<Radio
+						name="option"
+						id="option2"
+						value="OPTION 2 VALUE"
+					>
+						Option 2
+					</Radio>
+					<Radio
+						name="option"
+						id="option3"
+						value="OPTION 3 VALUE"
+					>
+						Option 3
+					</Radio>
+				</RadioGroup>
+			</Container>
+		</Vertical>
+	)
+}
 
 const CheckboxSection = () => {
 	return (

@@ -7,6 +7,8 @@ import Link from "./navigation/Link"
 import Button from "./form/Button"
 import Input from "./form/Input"
 import Checkbox from "./form/Checkbox/Checkbox"
+import RadioGroup from "./form/RadioGroup"
+import Radio from "./form/Radio"
 
 //Typography
 import Heading from "./typography/Heading"
@@ -56,6 +58,8 @@ export {
 	Button,
 	Input,
 	Checkbox,
+	RadioGroup,
+	Radio,
 
 	//Typography
 	Heading,
