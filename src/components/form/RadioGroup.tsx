@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Horizontal, Label, Vertical } from ".."
 
 type Direction = "vertical" | "horizontal"
 
-interface RadioGroupProps extends React.AllHTMLAttributes<HTMLDivElement> {
+interface RadioGroupProps
+	extends Omit<React.AllHTMLAttributes<HTMLDivElement>, "onChange"> {
 	label?: string
 	children?: React.ReactNode
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+	onChange?: React.Dispatch<React.SetStateAction<string>>
 	direction?: Direction
+	name: string
+	defaultValue?: string
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
@@ -16,10 +19,21 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 	label,
 	onChange,
 	direction = "vertical",
+	name,
+	defaultValue,
 }) => {
+	const [currentValue, setCurrentValue] = useState<string>(
+		defaultValue ? defaultValue : ""
+	)
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange && onChange(e)
+		setCurrentValue(e.target.value)
+		onChange && onChange(e.target.value)
 	}
+
+	useEffect(() => {
+		onChange && onChange(currentValue)
+	}, [currentValue])
 
 	const getNewProps = (
 		key: any,
@@ -28,6 +42,9 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 		return {
 			key: key,
 			onChange: handleChange,
+			name: name,
+			currentValue: currentValue,
+			setCurrentValue: setCurrentValue,
 		}
 	}
 

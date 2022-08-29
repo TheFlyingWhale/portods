@@ -55,15 +55,22 @@ const RadioGroupSection = () => {
 				</Subtitle>
 
 				<Props
-					props={["className", "label", "onChange", "direction"]}
+					props={[
+						"className",
+						"label",
+						"onChange",
+						"direction",
+						"name",
+						"defaultValue",
+					]}
 				/>
 
 				<Text>
 					Provides a <CodeSnippet>Label</CodeSnippet> and wraps
 					provided <CodeSnippet>Radio</CodeSnippet> elements in either
-					an
-					<CodeSnippet>Horizontal</CodeSnippet> or{" "}
-					<CodeSnippet>Vertical</CodeSnippet> component
+					an <CodeSnippet>Horizontal</CodeSnippet> or{" "}
+					<CodeSnippet>Vertical</CodeSnippet> component based on the
+					direction prop
 				</Text>
 			</Vertical>
 
@@ -73,11 +80,7 @@ const RadioGroupSection = () => {
 }
 
 const RadioSection = () => {
-	const [value, setValue] = useState("")
-
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setValue(e.target.value)
-	}
+	const [value, setValue] = useState<string>("")
 
 	return (
 		<Vertical className="items-start w-full gap-6">
@@ -91,50 +94,58 @@ const RadioSection = () => {
 				</Subtitle>
 
 				<Props
-					props={["className", "id", "name", "value", "children"]}
+					props={["className", "id", "name", "value", "defaultValue"]}
 				/>
 
-				<Text>
-					Provides a <CodeSnippet>{"input"}</CodeSnippet> linked with
-					a <CodeSnippet>{"Label"}</CodeSnippet>
-				</Text>
+				<Vertical className="gap-2">
+					<Text>
+						Provides a <CodeSnippet>{"input"}</CodeSnippet> linked
+						with a <CodeSnippet>{"Label"}</CodeSnippet>
+					</Text>
+
+					<Text>
+						If used inside a <CodeSnippet>RadioGroup</CodeSnippet>{" "}
+						use the name prop on{" "}
+						<CodeSnippet>RadioGroup</CodeSnippet> instead of on the{" "}
+						<CodeSnippet>Radio</CodeSnippet> element
+					</Text>
+				</Vertical>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Radio"]} />
 
 			<Container className="w-full flex flex-col gap-3">
-				<Text>
-					Chosen value: {value ? value : "no value selected "}
-				</Text>
-
 				<RadioGroup
 					label="Select an option"
-					onChange={handleChange}
+					onChange={setValue}
 					direction="horizontal"
 					className="gap-2"
+					name="options"
 				>
 					<Radio
-						name="option"
 						id="option1"
 						value="OPTION 1 VALUE"
 					>
 						Option 1
 					</Radio>
 					<Radio
-						name="option"
 						id="option2"
 						value="OPTION 2 VALUE"
+						defaultValue
 					>
 						Option 2
 					</Radio>
 					<Radio
-						name="option"
 						id="option3"
 						value="OPTION 3 VALUE"
 					>
 						Option 3
 					</Radio>
 				</RadioGroup>
+
+				<Text>
+					Chosen value: {value ? value : "no value selected "}
+				</Text>
 			</Container>
 		</Vertical>
 	)

@@ -1,3 +1,4 @@
+import React from "react"
 import { Horizontal, Label, Vertical, Helper } from "../.."
 
 const getCheckboxSize = (size: string) => {
@@ -52,12 +53,14 @@ interface CheckboxProps {
 	name?: string
 	size?: "sm" | "md" | "lg"
 	helperText?: string
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
 	name,
 	size = "md",
 	helperText,
+	onChange,
 }) => {
 	return (
 		<Horizontal
@@ -93,6 +96,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 				type="checkbox"
 				name={name}
 				id={name}
+				onChange={onChange}
 			/>
 			<Label
 				htmlFor={name}
