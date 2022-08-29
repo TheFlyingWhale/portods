@@ -1,4 +1,4 @@
-interface DividerProps {
+interface DividerProps extends React.HTMLAttributes<HTMLHRElement> {
 	className?: string
 }
 

@@ -4,10 +4,7 @@ import { twMerge } from "tailwind-merge"
     add default color from utils
 */
 
-interface TextProps {
-	children: React.ReactNode
-	className?: string
-}
+interface TextProps extends React.AllHTMLAttributes<HTMLParagraphElement> {}
 
 const Text: React.FC<TextProps> = ({ children, className }) => {
 	return (

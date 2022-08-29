@@ -14,10 +14,8 @@ const getLabelSize = (size: LabelSize) => {
 
 type LabelSize = "sm" | "md" | "lg"
 
-interface LabelProps {
-	children: React.ReactNode
+interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
 	htmlFor?: string | undefined
-	className?: string
 	size?: LabelSize
 }
 
@@ -26,6 +24,7 @@ const Label: React.FC<LabelProps> = ({
 	htmlFor,
 	className,
 	size = "md",
+	...props
 }) => {
 	return (
 		<label
@@ -35,6 +34,7 @@ const Label: React.FC<LabelProps> = ({
 					size
 				)} ${className}`
 			)}
+			{...props}
 		>
 			{children}
 		</label>

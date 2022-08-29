@@ -49,11 +49,10 @@ const getMarginTop = (size: string) => {
 	return "mt-1"
 }
 
-interface CheckboxProps {
+interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
 	name?: string
 	size?: "sm" | "md" | "lg"
 	helperText?: string
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -61,6 +60,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 	size = "md",
 	helperText,
 	onChange,
+	...props
 }) => {
 	return (
 		<Horizontal
@@ -97,6 +97,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 				name={name}
 				id={name}
 				onChange={onChange}
+				{...props}
 			/>
 			<Label
 				htmlFor={name}

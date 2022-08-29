@@ -29,28 +29,22 @@ export type ButtonAlign =
 	| "evenly"
 	| undefined
 
-interface ButtonProps {
-	children: string
-	className?: string
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	variant?: ButtonVariant
 	color?: ButtonColor
 	leftIcon?: React.ReactNode
 	rightIcon?: React.ReactNode
 	size?: ButtonSize
 	align?: ButtonAlign
-	onClick?: () => void
 }
 
 /**
- * @prop {string} children
- * @prop {string} className
  * @prop {ButtonVariant} variant - "primary" | "secondary" | "ghost""
  * @prop {ButtonColor} color - "primary" | "secondary" | "outlined" | "ghost" | "round"
  * @prop {React.ReactNode?} leftIcon - icon with the prop "contained" set to false
  * @prop {React.ReactNode?} rightIcon - icon with the prop "contained" set to false
  * @prop {ButtonSize} size - "xs" | "sm" | "md" | "lg"
  * @prop {ButtonAlgin} align - "start" | "end" | "center" | "between" | "around" | "evenly"
- * @prop {() => void} onClick - Arrow function
  */
 const Button: React.FC<ButtonProps> = ({
 	children,
@@ -62,6 +56,7 @@ const Button: React.FC<ButtonProps> = ({
 	size = "md",
 	align = "center",
 	onClick,
+	...props
 }) => {
 	const [isMouseOver, setIsMouseOver] = useState(false)
 	const [isMouseDown, setIsMouseDown] = useState(false)
@@ -78,6 +73,7 @@ const Button: React.FC<ButtonProps> = ({
 			onMouseDown={() => setIsMouseDown(true)}
 			onMouseUp={() => setIsMouseDown(false)}
 			onClick={onClick}
+			{...props}
 		>
 			<Horizontal
 				className={`

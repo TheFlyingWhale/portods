@@ -15,22 +15,22 @@ const getSize = (size: HelperTextSize) => {
 
 type HelperTextSize = "sm" | "md" | "lg"
 
-interface HelperTextProps {
-	children: string
+interface HelperTextProps extends React.HTMLAttributes<HTMLParagraphElement> {
 	size?: HelperTextSize
-	className?: string
 }
 
 const HelperText: React.FC<HelperTextProps> = ({
 	children,
 	size = "md",
 	className,
+	...props
 }) => {
 	return (
 		<Text
 			className={twMerge(
 				`${getSize(size)} text-neutral-600 mt-1 ${className}`
 			)}
+			{...props}
 		>
 			{children}
 		</Text>

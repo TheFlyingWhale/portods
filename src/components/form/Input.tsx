@@ -1,4 +1,5 @@
 import { twMerge } from "tailwind-merge"
+import { Container, Vertical } from ".."
 import IconContainer from "../media/icons/IconContainer"
 
 const SIZE_SM = `px-3 py-1.5 text-sm`
@@ -21,14 +22,11 @@ const getInputSize = (size: InputSize, leftIcon: boolean) => {
 
 export type InputSize = "sm" | "md" | "lg"
 
-interface InputProps {
+interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
 	name?: string
 	containerClassName?: string
-	className?: string
-	placeholder?: string
 	size?: InputSize
 	leftIcon?: React.ReactNode
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	value?: string
 }
 
@@ -41,27 +39,28 @@ const Input: React.FC<InputProps> = ({
 	leftIcon,
 	onChange,
 	value,
+	...props
 }) => {
 	return (
-		<div
+		<Vertical
 			className={twMerge(
 				`mt-1 relative rounded-md ${containerClassName}`
 			)}
 		>
 			{leftIcon && (
-				<div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+				<Container className="absolute inset-y-0 p-0 bg-transparent border-0 left-0 pl-4 flex items-center pointer-events-none">
 					<IconContainer
 						className="fill-neutral-700 active:fill-orange-600"
 						size={size === "md" ? 15 : size === "sm" ? 12 : 17}
 					>
 						{leftIcon}
 					</IconContainer>
-				</div>
+				</Container>
 			)}
 			<input
 				type="text"
 				className={twMerge(
-					`bg-neutral-150 w-full rounded-md focus:ring-1 drop-lg placeholder:text-neutral-600 text-neutral-800 font-secondary ${getInputSize(
+					`bg-neutral-150 w-full border-1 border-neutral-200 rounded-md focus:ring-1 drop-lg placeholder:text-neutral-600 text-neutral-800 font-secondary ${getInputSize(
 						size,
 						!!leftIcon
 					)} ${className}`
@@ -71,8 +70,9 @@ const Input: React.FC<InputProps> = ({
 				id={name}
 				onChange={onChange}
 				value={value}
+				{...props}
 			/>
-		</div>
+		</Vertical>
 	)
 }
 

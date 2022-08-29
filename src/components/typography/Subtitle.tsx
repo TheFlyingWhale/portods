@@ -17,10 +17,9 @@ const getFontSize = (size: Size) => {
 type HTMLElement = "p" | "h2" | "h3" | "h4" | "h5" | "h6"
 type Size = "xs" | "sm" | "md" | "lg" | "xl"
 
-interface SubtitleProps {
-	children: React.ReactNode
+interface SubtitleProps
+	extends React.HTMLAttributes<HTMLParagraphElement | HTMLHeadingElement> {
 	as?: HTMLElement
-	className?: string
 	size?: Size
 }
 
@@ -29,6 +28,7 @@ const Subtitle: React.FC<SubtitleProps> = ({
 	as = "p",
 	className,
 	size = "md",
+	...props
 }) => {
 	const HTMLElement = as
 
@@ -40,6 +40,7 @@ const Subtitle: React.FC<SubtitleProps> = ({
 				${FONT_WEIGHT}
 				${className}
 			`)}
+			{...props}
 		>
 			{children}
 		</HTMLElement>

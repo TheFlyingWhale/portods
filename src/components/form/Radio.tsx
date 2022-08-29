@@ -22,6 +22,7 @@ const Radio: React.FC<RadioProps> = ({
 	currentValue,
 	defaultValue,
 	setCurrentValue,
+	...props
 }) => {
 	useEffect(() => {
 		if (defaultValue && setCurrentValue) setCurrentValue(value)
@@ -37,6 +38,7 @@ const Radio: React.FC<RadioProps> = ({
 				value={value}
 				onChange={onChange && onChange}
 				checked={currentValue === value}
+				{...props}
 			/>
 			<Label
 				htmlFor={id}

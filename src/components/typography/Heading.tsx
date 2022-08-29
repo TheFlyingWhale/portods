@@ -51,9 +51,8 @@ type Size =
 	| "9xl"
 	| undefined
 
-interface HeadingProps {
-	children?: React.ReactNode
-	className?: string
+interface HeadingProps
+	extends Omit<React.AllHTMLAttributes<HTMLHeadingElement>, "size"> {
 	as?: HTMLHeadingElement
 	size?: Size
 }
@@ -75,7 +74,7 @@ const Heading: React.FC<HeadingProps> = ({
 				${FONT_WEIGHT} 
 				${FONT_FAMILY} 
 				${className}
-			`)}
+				`)}
 		>
 			{children}
 		</HTMLElement>

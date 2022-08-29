@@ -27,14 +27,19 @@ const ShowcaseForm = () => {
 		<Vertical className="w-full h-fit gap-12">
 			<Heading>Form</Heading>
 			<Divider />
+
 			<RadioGroupSection />
 			<Divider />
+
 			<RadioSection />
 			<Divider />
+
 			<CheckboxSection />
 			<Divider />
+
 			<InputSection />
 			<Divider />
+
 			<AllButtonsSection />
 		</Vertical>
 	)
@@ -128,6 +133,7 @@ const RadioSection = () => {
 					>
 						Option 1
 					</Radio>
+
 					<Radio
 						id="option2"
 						value="OPTION 2 VALUE"
@@ -135,12 +141,14 @@ const RadioSection = () => {
 					>
 						Option 2
 					</Radio>
+
 					<Radio
 						id="option3"
 						value="OPTION 3 VALUE"
 					>
 						Option 3
 					</Radio>
+
 					<Radio
 						id="option4"
 						value="OPTION 4 VALUE"

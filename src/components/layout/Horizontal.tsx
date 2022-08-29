@@ -1,10 +1,18 @@
-interface HorizontalProps {
-	children: React.ReactNode
-	className?: string
-}
+interface HorizontalProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const Horizontal: React.FC<HorizontalProps> = ({ children, className }) => {
-	return <div className={`flex flex-row ${className}`}>{children}</div>
+const Horizontal: React.FC<HorizontalProps> = ({
+	children,
+	className,
+	...props
+}) => {
+	return (
+		<div
+			{...props}
+			className={`flex flex-row ${className}`}
+		>
+			{children}
+		</div>
+	)
 }
 
 export default Horizontal

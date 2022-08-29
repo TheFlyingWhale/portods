@@ -1,14 +1,19 @@
 import { twMerge } from "tailwind-merge"
 
-interface VerticalProps {
-	children: React.ReactNode
+interface VerticalProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-	className?: string
-}
-
-const Vertical: React.FC<VerticalProps> = ({ children, className }) => {
+const Vertical: React.FC<VerticalProps> = ({
+	children,
+	className,
+	...props
+}) => {
 	return (
-		<div className={twMerge(`flex flex-col ${className}`)}>{children}</div>
+		<div
+			{...props}
+			className={twMerge(`flex flex-col ${className}`)}
+		>
+			{children}
+		</div>
 	)
 }
 
