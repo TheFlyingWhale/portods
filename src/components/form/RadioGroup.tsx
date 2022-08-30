@@ -35,7 +35,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 		onChange && onChange(currentValue)
 	}, [currentValue])
 
-	const propsToInject = (
+	const getPropsToInject = (
 		key: any,
 		handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 	) => {
@@ -50,8 +50,12 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
 	const childrenWithProps = React.Children.map(children, (child, key) => {
 		if (React.isValidElement(child)) {
-			return React.cloneElement(child, propsToInject(key, handleChange))
+			return React.cloneElement(
+				child,
+				getPropsToInject(key, handleChange)
+			)
 		}
+
 		return child
 	})
 

@@ -60,7 +60,7 @@ const Input: React.FC<InputProps> = ({
 			<input
 				type="text"
 				className={twMerge(
-					`bg-white w-full border shadow-weak border-neutral-200 rounded-md focus:ring-1 drop-lg placeholder:text-neutral-600 text-neutral-800 font-secondary ${getInputSize(
+					`bg-white w-full border border-neutral-200 rounded-md focus:ring-1 drop-lg placeholder:text-neutral-600 text-neutral-800 font-secondary ${getInputSize(
 						size,
 						!!leftIcon
 					)} ${className}`
