@@ -33,7 +33,7 @@ const Header = () => {
 							</Horizontal>
 						</Link>
 						<Text className="py-1.5 px-3 text-neutral-100 text-xs bg-orange-500 rounded-full">
-							Alpha 0.0.41
+							Alpha 0.1.0
 						</Text>
 					</Horizontal>
 				</GridItem>
