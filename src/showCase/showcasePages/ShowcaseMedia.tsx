@@ -30,6 +30,7 @@ import {
 	Text,
 	Image,
 	Container,
+	IconAtom,
 } from "../../components"
 import CodeSnippet from "../showcaseComponents/CodeSnippet"
 import ImportSyntax from "../showcaseComponents/ImportSyntax"
@@ -101,6 +102,7 @@ const IconSection = () => {
 		IconChevronDown,
 		IconBook,
 		IconClipboard,
+		IconAtom,
 	]
 
 	return (

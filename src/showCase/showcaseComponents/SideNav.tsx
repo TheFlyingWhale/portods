@@ -1,6 +1,7 @@
 import React from "react"
 import {
 	Button,
+	IconAtom,
 	IconBook,
 	IconHome,
 	IconInput,
@@ -43,6 +44,21 @@ const SideNav = () => {
 							className="w-full"
 						>
 							Documentation
+						</Button>
+					</_Link>
+				</li>
+				<li>
+					<_Link to="atoms">
+						<Button
+							variant={
+								path.includes("atoms") ? "primary" : "ghost"
+							}
+							color="orange"
+							leftIcon={<IconAtom />}
+							align="start"
+							className="w-full"
+						>
+							Atoms
 						</Button>
 					</_Link>
 				</li>

@@ -96,7 +96,7 @@ const Button: React.FC<ButtonProps> = ({
 						{leftIcon}
 					</IconContainer>
 				)}
-				<Text className="leading-none mt-1 font-primary">
+				<Text className="text-inherit leading-none mt-1 font-primary">
 					{children}
 				</Text>
 				{rightIcon && (

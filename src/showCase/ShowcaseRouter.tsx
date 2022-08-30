@@ -7,6 +7,7 @@ import ShowcaseTypography from "./showcasePages/ShowcaseTypography"
 import ShowcaseMedia from "./showcasePages/ShowcaseMedia"
 import ShowcaseLayout from "./showcasePages/ShowcaseLayout"
 import ShowcaseDocumentation from "./showcasePages/ShowcaseDocumentation"
+import ShowcaseAtoms from "./showcasePages/ShowcaseAtoms"
 
 const ShowcaseRouter = () => {
 	return (
@@ -38,6 +39,10 @@ const ShowcaseRouter = () => {
 				<Route
 					path="layout"
 					element={<ShowcaseLayout />}
+				/>
+				<Route
+					path="atoms"
+					element={<ShowcaseAtoms />}
 				/>
 			</Route>
 		</Routes>

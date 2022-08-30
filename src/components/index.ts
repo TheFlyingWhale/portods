@@ -1,5 +1,8 @@
 import "../index.css"
 
+//Atoms
+import ShapeCircle from "./atoms/ShapeCircle"
+
 //Navigation
 import Link from "./navigation/Link"
 
@@ -49,8 +52,12 @@ import IconChevronUp from "./media/icons/IconChevronUp"
 import IconChevronDown from "./media/icons/IconChevronDown"
 import IconBook from "./media/icons/IconBook"
 import IconClipboard from "./media/icons/IconClipboard"
+import IconAtom from "./media/icons/IconAtom"
 
 export {
+	//Atoms
+	ShapeCircle,
+
 	//Navigation
 	Link,
 
@@ -100,4 +107,5 @@ export {
 	IconChevronDown,
 	IconBook,
 	IconClipboard,
+	IconAtom,
 }
