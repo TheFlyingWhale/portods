@@ -36,6 +36,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 	rightIcon?: React.ReactNode
 	size?: ButtonSize
 	align?: ButtonAlign
+	type?: "button" | "submit" | "reset" | undefined
 }
 
 /**
@@ -56,6 +57,7 @@ const Button: React.FC<ButtonProps> = ({
 	size = "md",
 	align = "center",
 	onClick,
+	type,
 	...props
 }) => {
 	const [isMouseOver, setIsMouseOver] = useState(false)
@@ -73,6 +75,7 @@ const Button: React.FC<ButtonProps> = ({
 			onMouseDown={() => setIsMouseDown(true)}
 			onMouseUp={() => setIsMouseDown(false)}
 			onClick={onClick}
+			type={type}
 			{...props}
 		>
 			<Horizontal
