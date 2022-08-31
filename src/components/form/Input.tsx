@@ -22,7 +22,8 @@ const getInputSize = (size: InputSize, leftIcon: boolean) => {
 
 export type InputSize = "sm" | "md" | "lg"
 
-interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface InputProps
+	extends Omit<React.AllHTMLAttributes<HTMLInputElement>, "size"> {
 	name?: string
 	containerClassName?: string
 	size?: InputSize

@@ -256,6 +256,7 @@ const InputSection = () => {
 							placeholder="Input"
 							name="mediumInput"
 							size="md"
+							type="password"
 						/>
 						<Helper size="md">Helper</Helper>
 					</Vertical>
