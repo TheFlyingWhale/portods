@@ -31,6 +31,8 @@ import {
 	Image,
 	Container,
 	IconAtom,
+	IconMolecule,
+	IconOrganism,
 } from "../../components"
 import CodeSnippet from "../showcaseComponents/CodeSnippet"
 import ImportSyntax from "../showcaseComponents/ImportSyntax"
@@ -103,6 +105,8 @@ const IconSection = () => {
 		IconBook,
 		IconClipboard,
 		IconAtom,
+		IconMolecule,
+		IconOrganism,
 	]
 
 	return (

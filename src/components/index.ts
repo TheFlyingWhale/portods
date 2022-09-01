@@ -53,6 +53,8 @@ import IconChevronDown from "./media/icons/IconChevronDown"
 import IconBook from "./media/icons/IconBook"
 import IconClipboard from "./media/icons/IconClipboard"
 import IconAtom from "./media/icons/IconAtom"
+import IconOrganism from "./media/icons/IconOrganism"
+import IconMolecule from "./media/icons/IconMolecule"
 
 export {
 	//Atoms
@@ -108,4 +110,6 @@ export {
 	IconBook,
 	IconClipboard,
 	IconAtom,
+	IconOrganism,
+	IconMolecule,
 }

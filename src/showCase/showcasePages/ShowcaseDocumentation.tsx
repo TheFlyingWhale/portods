@@ -1,16 +1,5 @@
-import React from "react"
-import {
-	Container,
-	Heading,
-	Subtitle,
-	Vertical,
-	Text,
-	Horizontal,
-	Button,
-	IconClipboard,
-	Link,
-	Divider,
-} from "../../components"
+import React, { useEffect, useRef } from "react"
+import { Heading, Subtitle, Vertical, Text, Link } from "../../components"
 import CodeSyntax from "../showcaseComponents/CodeSyntax"
 
 const ShowcaseDocumentation = () => {
@@ -36,10 +25,6 @@ const PortodsSection = () => {
 }
 
 const TailwindcssSection = () => {
-	const copyInstallTailwind = () => {
-		navigator.clipboard.writeText("npm install -D tailwindcss")
-	}
-
 	return (
 		<Vertical className="gap-2">
 			<Subtitle size="lg">Expand with tailwindcss</Subtitle>

@@ -7,6 +7,8 @@ import {
 	IconInput,
 	IconLayout,
 	IconMedia,
+	IconMolecule,
+	IconOrganism,
 	IconTypography,
 	Input,
 } from "../../components"
@@ -59,6 +61,36 @@ const SideNav = () => {
 							className="w-full"
 						>
 							Atoms
+						</Button>
+					</_Link>
+				</li>
+				<li>
+					<_Link to="atoms">
+						<Button
+							variant={
+								path.includes("atoms") ? "primary" : "ghost"
+							}
+							color="orange"
+							leftIcon={<IconMolecule />}
+							align="start"
+							className="w-full"
+						>
+							Molecules
+						</Button>
+					</_Link>
+				</li>
+				<li>
+					<_Link to="atoms">
+						<Button
+							variant={
+								path.includes("atoms") ? "primary" : "ghost"
+							}
+							color="orange"
+							leftIcon={<IconOrganism />}
+							align="start"
+							className="w-full"
+						>
+							Organisms
 						</Button>
 					</_Link>
 				</li>
