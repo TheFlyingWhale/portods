@@ -8,6 +8,8 @@ import ShowcaseMedia from "./showcasePages/ShowcaseMedia"
 import ShowcaseLayout from "./showcasePages/ShowcaseLayout"
 import ShowcaseDocumentation from "./showcasePages/ShowcaseDocumentation"
 import ShowcaseAtoms from "./showcasePages/ShowcaseAtoms"
+import ShowcaseMolecules from "./showcasePages/ShowcaseMolecules"
+import ShowcaseOrganisms from "./showcasePages/ShowcaseOrganisms"
 
 const ShowcaseRouter = () => {
 	return (
@@ -43,6 +45,14 @@ const ShowcaseRouter = () => {
 				<Route
 					path="atoms"
 					element={<ShowcaseAtoms />}
+				/>
+				<Route
+					path="molecules"
+					element={<ShowcaseMolecules />}
+				/>
+				<Route
+					path="organisms"
+					element={<ShowcaseOrganisms />}
 				/>
 			</Route>
 		</Routes>

@@ -65,10 +65,10 @@ const SideNav = () => {
 					</_Link>
 				</li>
 				<li>
-					<_Link to="atoms">
+					<_Link to="molecules">
 						<Button
 							variant={
-								path.includes("atoms") ? "primary" : "ghost"
+								path.includes("molecules") ? "primary" : "ghost"
 							}
 							color="orange"
 							leftIcon={<IconMolecule />}
@@ -80,10 +80,10 @@ const SideNav = () => {
 					</_Link>
 				</li>
 				<li>
-					<_Link to="atoms">
+					<_Link to="organisms">
 						<Button
 							variant={
-								path.includes("atoms") ? "primary" : "ghost"
+								path.includes("organism") ? "primary" : "ghost"
 							}
 							color="orange"
 							leftIcon={<IconOrganism />}

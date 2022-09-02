@@ -12,7 +12,10 @@ import {
 const ShowcaseAtoms = () => {
 	return (
 		<Vertical className="w-full h-fit gap-12">
-			<Heading>Atoms</Heading>
+			<Vertical className="gap-3">
+				<Heading>Atoms</Heading>
+				<Text>Atoms are singular components or elements</Text>
+			</Vertical>
 			<Divider />
 
 			<FontSection />
