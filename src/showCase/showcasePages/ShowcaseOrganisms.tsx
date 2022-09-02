@@ -6,7 +6,10 @@ const ShowcaseOrganisms = () => {
 		<Vertical className="w-full h-fit gap-12">
 			<Vertical className="gap-3">
 				<Heading>Organisms</Heading>
-				<Text>Organisms are components built of molecules</Text>
+				<Text>
+					Organisms are components built from a combination of several
+					atoms and molecules
+				</Text>
 			</Vertical>
 			<Divider />
 		</Vertical>
