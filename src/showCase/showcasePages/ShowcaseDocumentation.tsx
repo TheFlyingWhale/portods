@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import { Heading, Subtitle, Vertical, Text, Link } from "../../components"
 import CodeSyntax from "../showcaseComponents/CodeSyntax"
 
