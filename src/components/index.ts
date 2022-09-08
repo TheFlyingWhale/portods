@@ -56,6 +56,7 @@ import IconAtom from "./media/icons/IconAtom"
 import IconOrganism from "./media/icons/IconOrganism"
 import IconMolecule from "./media/icons/IconMolecule"
 import IconFonts from "./media/icons/IconFonts"
+import IconColor from "./media/icons/IconColor"
 
 export {
 	//Atoms
@@ -116,4 +117,5 @@ export {
 	IconOrganism,
 	IconMolecule,
 	IconFonts,
+	IconColor,
 }

@@ -62,6 +62,21 @@ const SideNav = () => {
 					</_Link>
 				</li>
 				<li>
+					<_Link to="atoms">
+						<Button
+							variant={
+								path.includes("atoms") ? "primary" : "ghost"
+							}
+							color="orange"
+							leftIcon={<IconFonts />}
+							align="start"
+							className="w-full"
+						>
+							Colors
+						</Button>
+					</_Link>
+				</li>
+				<li>
 					<_Link to="form">
 						<Button
 							variant={
