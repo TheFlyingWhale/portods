@@ -1,16 +1,13 @@
 import React from "react"
 import {
 	Button,
-	IconAtom,
 	IconBook,
+	IconFonts,
 	IconHome,
 	IconInput,
 	IconLayout,
 	IconMedia,
-	IconMolecule,
-	IconOrganism,
 	IconTypography,
-	Input,
 } from "../../components"
 import { Link as _Link } from "react-router-dom"
 import { useLocation } from "react-router"
@@ -56,11 +53,11 @@ const SideNav = () => {
 								path.includes("atoms") ? "primary" : "ghost"
 							}
 							color="orange"
-							leftIcon={<IconAtom />}
+							leftIcon={<IconFonts />}
 							align="start"
 							className="w-full"
 						>
-							Atoms
+							Fonts
 						</Button>
 					</_Link>
 				</li>
