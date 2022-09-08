@@ -17,7 +17,7 @@ export default ShowcaseDocumentation
 const PortodsSection = () => {
 	return (
 		<Vertical className="gap-2">
-			<Subtitle size="lg">Installation</Subtitle>
+			<Subtitle size="xl">Installation</Subtitle>
 			<Text>Install portods via npm</Text>
 			<CodeSyntax clipboardSyntax="npm install portods" />
 		</Vertical>
@@ -27,7 +27,7 @@ const PortodsSection = () => {
 const TailwindcssSection = () => {
 	return (
 		<Vertical className="gap-2">
-			<Subtitle size="lg">Expand with tailwindcss</Subtitle>
+			<Subtitle size="xl">Expand with tailwindcss</Subtitle>
 			<Text>Install tailwindcss via npm</Text>
 			<Text>
 				For detailed documentation and configuration visit{" "}

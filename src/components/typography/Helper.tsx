@@ -28,7 +28,9 @@ const HelperText: React.FC<HelperTextProps> = ({
 	return (
 		<Text
 			className={twMerge(
-				`${getSize(size)} text-neutral-600 mt-1 ${className}`
+				`${getSize(
+					size
+				)} antialiased text-neutral-600 mt-1 ${className}`
 			)}
 			{...props}
 		>

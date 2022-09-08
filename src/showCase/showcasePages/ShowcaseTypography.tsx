@@ -19,6 +19,9 @@ const ShowcaseTypography = () => {
 			<Heading>Typography</Heading>
 			<Divider />
 
+			<FontSection />
+			<Divider />
+
 			<HeadingSection />
 			<Divider />
 
@@ -37,6 +40,49 @@ const ShowcaseTypography = () => {
 }
 
 export default ShowcaseTypography
+
+const FontSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical className="gap-12 w-full">
+				<Heading as="h3">Fonts</Heading>
+
+				<Vertical className="gap-3">
+					<Subtitle>Primary</Subtitle>
+					<Heading
+						as="h3"
+						size="6xl"
+						className="font-primary"
+					>
+						Josefin Sans
+					</Heading>
+				</Vertical>
+
+				<Vertical className="gap-3">
+					<Subtitle>Secondary</Subtitle>
+					<Heading
+						as="h3"
+						size="6xl"
+						className="font-secondary"
+					>
+						Heebo
+					</Heading>
+				</Vertical>
+
+				<Vertical className="gap-3">
+					<Subtitle>Mono</Subtitle>
+					<Heading
+						as="h3"
+						size="6xl"
+						className="font-mono"
+					>
+						Space Mono
+					</Heading>
+				</Vertical>
+			</Vertical>
+		</Vertical>
+	)
+}
 
 const HeadingSection = () => {
 	return (

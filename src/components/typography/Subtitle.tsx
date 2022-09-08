@@ -35,6 +35,7 @@ const Subtitle: React.FC<SubtitleProps> = ({
 	return (
 		<HTMLElement
 			className={twMerge(`
+				antialiased
 				${getFontSize(size)}			
 				${TEXT_COLOR}
 				${FONT_WEIGHT}

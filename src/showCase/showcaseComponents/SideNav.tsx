@@ -2,7 +2,7 @@ import React from "react"
 import {
 	Button,
 	IconBook,
-	IconFonts,
+	IconColor,
 	IconHome,
 	IconInput,
 	IconLayout,
@@ -47,28 +47,13 @@ const SideNav = () => {
 					</_Link>
 				</li>
 				<li>
-					<_Link to="atoms">
+					<_Link to="colors">
 						<Button
 							variant={
 								path.includes("atoms") ? "primary" : "ghost"
 							}
 							color="orange"
-							leftIcon={<IconFonts />}
-							align="start"
-							className="w-full"
-						>
-							Fonts
-						</Button>
-					</_Link>
-				</li>
-				<li>
-					<_Link to="atoms">
-						<Button
-							variant={
-								path.includes("atoms") ? "primary" : "ghost"
-							}
-							color="orange"
-							leftIcon={<IconFonts />}
+							leftIcon={<IconColor />}
 							align="start"
 							className="w-full"
 						>

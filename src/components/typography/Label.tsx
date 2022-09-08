@@ -30,7 +30,7 @@ const Label: React.FC<LabelProps> = ({
 		<label
 			htmlFor={htmlFor}
 			className={twMerge(
-				`font-primary font-medium tracking-wide text-neutral-800 ${getLabelSize(
+				`font-primary antialiased font-medium tracking-wide text-neutral-800 ${getLabelSize(
 					size
 				)} ${className}`
 			)}

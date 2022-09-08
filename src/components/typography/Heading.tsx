@@ -68,6 +68,7 @@ const Heading: React.FC<HeadingProps> = ({
 	return (
 		<HTMLElement
 			className={twMerge(`
+			antialiased
 				${getDefaultSize(as)} 
 				${getFontSize(size)} 
 				${TEXT_COLOR} 

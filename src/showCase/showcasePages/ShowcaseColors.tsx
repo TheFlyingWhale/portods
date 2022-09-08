@@ -5,21 +5,25 @@ import {
 	Vertical,
 	Text,
 	ShapeCircle,
-	Horizontal,
-	Subtitle,
 	Grid,
 } from "../../components"
+import CodeSnippet from "../showcaseComponents/CodeSnippet"
 
-const ShowcaseAtoms = () => {
+const ShowcaseColors = () => {
 	return (
 		<Vertical className="w-full h-fit gap-12">
 			<Vertical className="gap-3">
-				<Heading>Atoms</Heading>
-				<Text>Atoms are singular components or elements</Text>
+				<Heading>Colors</Heading>
+				<Text>Utilities for controlling color</Text>
+				<Text>
+					Colors are applied to text and background in the same way as
+					in tailwindcss
+					<br />
+					<CodeSnippet classes="text-orange-500 bg-orange-500">
+						Element
+					</CodeSnippet>
+				</Text>
 			</Vertical>
-			<Divider />
-
-			<FontSection />
 			<Divider />
 
 			<ColorSection />
@@ -27,112 +31,67 @@ const ShowcaseAtoms = () => {
 	)
 }
 
-export default ShowcaseAtoms
-
-const FontSection = () => {
-	return (
-		<Vertical className="items-start w-full gap-6">
-			<Vertical className="gap-12 w-full">
-				<Heading as="h3">Fonts</Heading>
-
-				<Vertical className="gap-3">
-					<Subtitle>Primary</Subtitle>
-					<Heading
-						as="h3"
-						size="6xl"
-						className="font-primary"
-					>
-						Josefin Sans
-					</Heading>
-				</Vertical>
-
-				<Vertical className="gap-3">
-					<Subtitle>Secondary</Subtitle>
-					<Heading
-						as="h3"
-						size="6xl"
-						className="font-secondary"
-					>
-						Heebo
-					</Heading>
-				</Vertical>
-
-				<Vertical className="gap-3">
-					<Subtitle>Mono</Subtitle>
-					<Heading
-						as="h3"
-						size="6xl"
-						className="font-mono"
-					>
-						Space Mono
-					</Heading>
-				</Vertical>
-			</Vertical>
-		</Vertical>
-	)
-}
+export default ShowcaseColors
 
 const ColorSection = () => {
 	return (
 		<Vertical className="items-start w-full gap-6">
 			<Vertical className="gap-12 w-full">
-				<Heading as="h3">Colors</Heading>
-
-				<Heading as="h5">Neutral</Heading>
+				<Heading as="h3">Neutral</Heading>
 
 				<ColorGrid>
 					<NeutralSection />
 				</ColorGrid>
 
-				<Heading as="h5">Red</Heading>
+				<Heading as="h3">Red</Heading>
 
 				<ColorGrid>
 					<RedSection />
 				</ColorGrid>
 
-				<Heading as="h5">Orange</Heading>
+				<Heading as="h3">Orange</Heading>
 
 				<ColorGrid>
 					<OrangeSection />
 				</ColorGrid>
 
-				<Heading as="h5">Yellow</Heading>
+				<Heading as="h3">Yellow</Heading>
 
 				<ColorGrid>
 					<YellowSection />
 				</ColorGrid>
 
-				<Heading as="h5">Green</Heading>
+				<Heading as="h3">Green</Heading>
 
 				<ColorGrid>
 					<GreenSection />
 				</ColorGrid>
 
-				<Heading as="h5">Teal</Heading>
+				<Heading as="h3">Teal</Heading>
 
 				<ColorGrid>
 					<TealSection />
 				</ColorGrid>
 
-				<Heading as="h5">Cyan</Heading>
+				<Heading as="h3">Cyan</Heading>
 
 				<ColorGrid>
 					<CyanSection />
 				</ColorGrid>
 
-				<Heading as="h5">Blue</Heading>
+				<Heading as="h3">Blue</Heading>
 
 				<ColorGrid>
 					<BlueSection />
 				</ColorGrid>
 
-				<Heading as="h5">Purple</Heading>
+				<Heading as="h3">Purple</Heading>
 
 				<ColorGrid>
 					<PurpleSection />
 				</ColorGrid>
 
-				<Heading as="h5">Pink</Heading>
+				<Heading as="h3">Pink</Heading>
 
 				<ColorGrid>
 					<PinkSection />

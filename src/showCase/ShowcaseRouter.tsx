@@ -3,11 +3,11 @@ import { Routes, Route } from "react-router-dom"
 import Showcase from "./showcasePages/Showcase"
 import ShowcaseIndex from "./showcasePages/ShowcaseIndex"
 import ShowcaseForm from "./showcasePages/ShowcaseForm"
-import ShowcaseTypography from "./showcasePages/ShowcaseTypography"
 import ShowcaseMedia from "./showcasePages/ShowcaseMedia"
 import ShowcaseLayout from "./showcasePages/ShowcaseLayout"
 import ShowcaseDocumentation from "./showcasePages/ShowcaseDocumentation"
-import ShowcaseAtoms from "./showcasePages/ShowcaseAtoms"
+import ShowcaseColors from "./showcasePages/ShowcaseColors"
+import ShowcaseTypography from "./showcasePages/ShowcaseTypography"
 
 const ShowcaseRouter = () => {
 	return (
@@ -29,8 +29,8 @@ const ShowcaseRouter = () => {
 					element={<ShowcaseForm />}
 				/>
 				<Route
-					path="typography"
-					element={<ShowcaseTypography />}
+					path="colors"
+					element={<ShowcaseColors />}
 				/>
 				<Route
 					path="media"
@@ -41,8 +41,8 @@ const ShowcaseRouter = () => {
 					element={<ShowcaseLayout />}
 				/>
 				<Route
-					path="atoms"
-					element={<ShowcaseAtoms />}
+					path="typography"
+					element={<ShowcaseTypography />}
 				/>
 			</Route>
 		</Routes>
