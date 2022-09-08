@@ -17,6 +17,7 @@ import {
 	Container,
 	RadioGroup,
 	Radio,
+	Select,
 } from "../../components"
 import CodeSnippet from "../showcaseComponents/CodeSnippet"
 import ImportSyntax from "../showcaseComponents/ImportSyntax"
@@ -38,6 +39,9 @@ const ShowcaseForm = () => {
 			<Divider />
 
 			<InputSection />
+			<Divider />
+
+			<SelectSection />
 			<Divider />
 
 			<AllButtonsSection />
@@ -188,7 +192,12 @@ const CheckboxSection = () => {
 				</Vertical>
 
 				<Text>
-					Provides a <CodeSnippet>input type="checkbox"</CodeSnippet>{" "}
+					Provides a{" "}
+					<CodeSnippet
+						attributes={[{ attribute: "type", values: "checkbox" }]}
+					>
+						input
+					</CodeSnippet>{" "}
 					element
 				</Text>
 			</Vertical>
@@ -236,7 +245,12 @@ const InputSection = () => {
 				</Vertical>
 
 				<Text>
-					Provides a <CodeSnippet>input type="text"</CodeSnippet>{" "}
+					Provides a{" "}
+					<CodeSnippet
+						attributes={[{ attribute: "type", values: "text" }]}
+					>
+						input
+					</CodeSnippet>{" "}
 					element
 				</Text>
 			</Vertical>
@@ -259,6 +273,64 @@ const InputSection = () => {
 							type="password"
 						/>
 						<Helper size="md">Helper</Helper>
+					</Vertical>
+					<Vertical className="w-full">
+						<Label
+							htmlFor="mediumInputWithIcon"
+							size="md"
+						>
+							Input with Icon
+						</Label>
+						<Input
+							placeholder="Search"
+							name="mediumInputWithIcon"
+							size="md"
+							leftIcon={<IconSearch />}
+						/>
+						<Helper size="md">Find what you're looking for</Helper>
+					</Vertical>
+				</Horizontal>
+			</Vertical>
+		</Vertical>
+	)
+}
+
+const SelectSection = () => {
+	return (
+		<Vertical className="items-start w-full gap-6">
+			<Vertical className="gap-3">
+				<Heading as="h3">Select</Heading>
+
+				<Vertical>
+					<Subtitle
+						size="lg"
+						as="h4"
+					>
+						Props
+					</Subtitle>
+
+					<Props props={["CHANGE ME"]} />
+				</Vertical>
+
+				<Text>
+					Provides a <CodeSnippet>select</CodeSnippet> element
+				</Text>
+			</Vertical>
+
+			<ImportSyntax componentNames={["Input"]} />
+
+			<Vertical className="w-full gap-3">
+				<Horizontal className="gap-6 w-full">
+					<Vertical className="w-full">
+						<Label
+							htmlFor="mediumInput"
+							size="md"
+						>
+							Label
+						</Label>
+						<Select>
+							<option value="test">test</option>
+						</Select>
 					</Vertical>
 					<Vertical className="w-full">
 						<Label

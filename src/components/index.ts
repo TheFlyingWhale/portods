@@ -12,6 +12,7 @@ import Input from "./form/Input"
 import Checkbox from "./form/Checkbox/Checkbox"
 import RadioGroup from "./form/RadioGroup"
 import Radio from "./form/Radio"
+import Select from "./form/Select"
 
 //Typography
 import Heading from "./typography/Heading"
@@ -71,6 +72,7 @@ export {
 	Checkbox,
 	RadioGroup,
 	Radio,
+	Select,
 
 	//Typography
 	Heading,

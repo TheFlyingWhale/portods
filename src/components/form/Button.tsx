@@ -207,7 +207,7 @@ const getVariantAndColorClasses = (
 					return "bg-blue-500 text-blue-50 hover:bg-blue-400 active:bg-blue-600"
 
 				case "green":
-					return "bg-green-700 text-green-50 hover:bg-green-400 active:bg-green-800"
+					return "bg-green-600 text-green-50 hover:bg-green-400 active:bg-green-700"
 
 				case "red":
 					return "bg-red-500 text-red-50 hover:bg-red-300 active:bg-red-700"

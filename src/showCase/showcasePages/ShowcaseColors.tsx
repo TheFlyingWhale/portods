@@ -19,7 +19,14 @@ const ShowcaseColors = () => {
 					Colors are applied to text and background in the same way as
 					in tailwindcss
 					<br />
-					<CodeSnippet classes="text-orange-500 bg-orange-500">
+					<CodeSnippet
+						attributes={[
+							{
+								attribute: "className",
+								values: "text-orange-500 bg-orange-500",
+							},
+						]}
+					>
 						Element
 					</CodeSnippet>
 				</Text>
