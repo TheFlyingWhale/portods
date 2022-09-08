@@ -55,6 +55,7 @@ import IconClipboard from "./media/icons/IconClipboard"
 import IconAtom from "./media/icons/IconAtom"
 import IconOrganism from "./media/icons/IconOrganism"
 import IconMolecule from "./media/icons/IconMolecule"
+import IconFonts from "./media/icons/IconFonts"
 
 export {
 	//Atoms
@@ -87,6 +88,8 @@ export {
 
 	//Media
 	Image,
+
+	//Icons
 	IconContainer,
 	IconAnalytics,
 	IconExit,
@@ -112,4 +115,5 @@ export {
 	IconAtom,
 	IconOrganism,
 	IconMolecule,
+	IconFonts,
 }
