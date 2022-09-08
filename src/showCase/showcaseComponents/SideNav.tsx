@@ -65,36 +65,6 @@ const SideNav = () => {
 					</_Link>
 				</li>
 				<li>
-					<_Link to="molecules">
-						<Button
-							variant={
-								path.includes("molecules") ? "primary" : "ghost"
-							}
-							color="orange"
-							leftIcon={<IconMolecule />}
-							align="start"
-							className="w-full"
-						>
-							Molecules
-						</Button>
-					</_Link>
-				</li>
-				<li>
-					<_Link to="organisms">
-						<Button
-							variant={
-								path.includes("organism") ? "primary" : "ghost"
-							}
-							color="orange"
-							leftIcon={<IconOrganism />}
-							align="start"
-							className="w-full"
-						>
-							Organisms
-						</Button>
-					</_Link>
-				</li>
-				<li>
 					<_Link to="form">
 						<Button
 							variant={
