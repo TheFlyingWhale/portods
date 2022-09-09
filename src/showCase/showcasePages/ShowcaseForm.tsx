@@ -317,7 +317,7 @@ const SelectSection = () => {
 				</Text>
 			</Vertical>
 
-			<ImportSyntax componentNames={["Input"]} />
+			<ImportSyntax componentNames={["Select"]} />
 
 			<Vertical className="w-full gap-3">
 				<Horizontal className="gap-6 w-full">

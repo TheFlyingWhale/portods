@@ -71,11 +71,11 @@ const Select: React.FC<SelectProps> = () => {
                                         px-4 
                                         py-2 
                                         hover:cursor-pointer 
-                                        active:bg-orange-200 
                                         ${
 											active &&
-											"bg-orange-400 text-neutral-100"
+											"bg-orange-100 text-orange-800"
 										}
+                                        ${selected && "font-medium"}
                                         `}
 								>
 									{selected && (

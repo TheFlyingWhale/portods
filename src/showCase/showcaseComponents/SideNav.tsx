@@ -50,7 +50,7 @@ const SideNav = () => {
 					<_Link to="colors">
 						<Button
 							variant={
-								path.includes("atoms") ? "primary" : "ghost"
+								path.includes("colors") ? "primary" : "ghost"
 							}
 							color="orange"
 							leftIcon={<IconColor />}
