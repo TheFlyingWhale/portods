@@ -1,91 +1,174 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { Listbox } from "@headlessui/react"
 import Vertical from "../layout/Vertical"
 import { twMerge } from "tailwind-merge"
 import IconCheck from "../media/icons/IconCheck"
+import { IconChevronDown, Text } from "../index"
 
-// const SIZE_SM = `px-3 py-1.5 text-sm`
-// const SIZE_SM_LEFT_ICON = `pl-8 pr-3 pt-1 pb-0.5 text-sm`
-// const SIZE_MD = `px-4 pt-2 pb-2 text-base`
-// const SIZE_MD_LEFT_ICON = `pl-11 pr-3 py-2 text-base`
-// const SIZE_LG = `px-6 py-2 text-lg tracking-wide`
-// const SIZE_LG_LEFT_ICON = `pl-10 pr-5 pt-2 pb-1.5 text-lg tracking-wide`
+const BUTTON_SIZE_SM = "px-3 py-1.5"
+const BUTTON_SIZE_MD = "px-4 py-2"
+const BUTTON_SIZE_LG = "px-6 py-2"
+
+const getButtonSize = (size: SelectSize) => {
+	if (size === "sm") return BUTTON_SIZE_SM
+
+	if (size === "lg") return BUTTON_SIZE_LG
+
+	return BUTTON_SIZE_MD
+}
+
+const TEXT_SIZE_SM = `text-sm`
+const TEXT_SIZE_MD = `text-base`
+const TEXT_SIZE_LG = `text-lg tracking-wide`
+
+const getTextSize = (size: SelectSize) => {
+	if (size === "sm") return TEXT_SIZE_SM
+
+	if (size === "lg") return TEXT_SIZE_LG
+
+	return TEXT_SIZE_MD
+}
+
+const OPTION_TOP_SM = "top-10"
+const OPTION_TOP_MD = "top-12"
+const OPTION_TOP_LG = "top-[3.25rem]"
+
+const getTopGap = (size: SelectSize) => {
+	if (size === "sm") return OPTION_TOP_SM
+
+	if (size === "lg") return OPTION_TOP_LG
+
+	return OPTION_TOP_MD
+}
 
 export type SelectSize = "sm" | "md" | "lg"
 
 interface SelectProps
-	extends Omit<React.AllHTMLAttributes<HTMLSelectElement>, "size"> {
-	children: React.ReactNode
+	extends Omit<
+		React.AllHTMLAttributes<HTMLSelectElement>,
+		"size" | "onChange"
+	> {
+	children: React.ReactElement<HTMLOptionElement>[]
 	size?: SelectSize
 	leftIcon?: React.ReactNode
+	name?: string
+	onChange?: (value: string) => void
 }
 
-const people = [
-	{ id: 1, name: "Durward Reynolds", unavailable: false },
-	{ id: 2, name: "Kenton Towne", unavailable: false },
-	{ id: 3, name: "Therese Wunsch", unavailable: false },
-	{ id: 4, name: "Benedict Kessler", unavailable: true },
-	{ id: 5, name: "Katelyn Rohan", unavailable: false },
-]
+const Select: React.FC<SelectProps> = ({
+	name,
+	children,
+	onChange,
+	leftIcon,
+	size = "md",
+}) => {
+	const [selectedOption, setSelectedOption] = useState("")
 
-// const getSelectSize = (size: SelectSize, leftIcon: boolean) => {
-// 	if (size === "sm" && !leftIcon) return SIZE_SM
-// 	if (size === "sm" && leftIcon) return SIZE_SM_LEFT_ICON
-
-// 	if (size === "lg" && !leftIcon) return SIZE_LG
-// 	if (size === "lg" && leftIcon) return SIZE_LG_LEFT_ICON
-
-// 	if (size === "md" && leftIcon) return SIZE_MD_LEFT_ICON
-// 	return SIZE_MD
-// }
-
-const Select: React.FC<SelectProps> = () => {
-	const [selectedOption, setSelectedOption] = useState(people[0])
+	const handleChange = (value: string) => {
+		setSelectedOption(value)
+		onChange && onChange(value)
+	}
 
 	return (
 		<Listbox
 			value={selectedOption}
-			onChange={setSelectedOption}
+			onChange={handleChange}
+			name={name}
 		>
 			<Vertical
-				className={twMerge(
-					`mt-1 relative bg-white w-full border border-neutral-200 rounded-md focus:ring-1 drop-lg placeholder:text-neutral-600 text-neutral-800 font-secondary`
-				)}
+				className={twMerge(`
+                    mt-1 
+                    relative 
+                    bg-white 
+                    w-full 
+                    drop-lg 
+                    border-1
+                    border-neutral-200 
+                    rounded-md 
+                    placeholder:text-neutral-600 
+                    text-neutral-800 
+                    font-secondary
+                `)}
 			>
-				<Listbox.Button className="px-4 pt-2 pb-2 text-base flex justify-start">
-					{selectedOption.name}
+				<Listbox.Button
+					className={`
+                        flex
+                        justify-start
+                        items-center
+                        gap-3
+                        relative
+                        w-full
+                        ${getButtonSize(size)}
+                        ${!selectedOption && "text-neutral-600"}
+                        ${getTextSize(size)}
+                    `}
+				>
+					{leftIcon && leftIcon}
+					{!selectedOption && "Placeholder text"}
+					{selectedOption.charAt(0).toUpperCase() +
+						selectedOption.slice(1)}
+					<IconChevronDown
+						size={10}
+						contained
+						className="fill-neutral-600 right-3 absolute"
+					/>
 				</Listbox.Button>
-				<Listbox.Options className="bg-neutral-100 drop-shadow-md overflow-hidden bg-white border border-neutral-200 rounded-md top-12 absolute w-full">
-					{people.map((person) => (
-						<Listbox.Option
-							key={person.id}
-							value={person}
-							disabled={person.unavailable}
-							className={`
-                                ${person.unavailable && "text-neutral-500"}
-                            `}
-						>
-							{({ active, selected }) => (
-								<li
-									className={`
-                                        px-4 
-                                        py-2 
-                                        hover:cursor-pointer 
-                                        ${
-											active &&
-											"bg-orange-100 text-orange-800"
-										}
-                                        ${selected && "font-medium"}
+				<Listbox.Options
+					className={`
+                        bg-neutral-100
+                        drop-shadow-md
+                        overflow-hidden
+                        bg-white border 
+                        border-neutral-200 
+                        rounded-md 
+                        absolute 
+                        w-full
+                        z-10
+                        ${getTopGap(size)}
+                    `}
+				>
+					{children.map((child) => {
+						const value = child.props.value
+						const capitalizedFirstLetter =
+							value.charAt(0).toUpperCase() + value.slice(1)
+						return (
+							<Listbox.Option
+								value={child.props.value}
+								key={child.props.value}
+							>
+								{({ active, selected }) => (
+									<li
+										className={`
+                                            flex
+                                            flex-row
+                                            gap-3
+                                            px-4 
+                                            py-2 
+                                            hover:cursor-pointer 
+                                            ${active && "bg-orange-100"}
                                         `}
-								>
-									{selected && (
-										<IconCheck className="fill-orange-500" />
-									)}
-									{person.name}
-								</li>
-							)}
-						</Listbox.Option>
-					))}
+									>
+										<Text
+											className={`
+                                                ${selected && "font-medium"}
+                                                ${getTextSize(size)}
+                                                ${active && "text-orange-900"}
+                                            `}
+										>
+											{capitalizedFirstLetter}
+										</Text>
+										{selected && (
+											<IconCheck
+												className="fill-orange-500 mt-1"
+												size={15}
+												contained
+											/>
+										)}
+									</li>
+								)}
+							</Listbox.Option>
+						)
+					})}
 				</Listbox.Options>
 			</Vertical>
 		</Listbox>

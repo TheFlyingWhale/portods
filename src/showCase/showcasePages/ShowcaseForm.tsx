@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
 	Checkbox,
 	Heading,
@@ -296,6 +296,12 @@ const InputSection = () => {
 }
 
 const SelectSection = () => {
+	const [selected, setSelected] = useState("")
+
+	const handleSelectChange = (value: string) => {
+		setSelected(value)
+	}
+
 	return (
 		<Vertical className="items-start w-full gap-6">
 			<Vertical className="gap-3">
@@ -309,27 +315,75 @@ const SelectSection = () => {
 						Props
 					</Subtitle>
 
-					<Props props={["CHANGE ME"]} />
+					<Props
+						props={["size, leftIcon, name, onChange, placeholder"]}
+					/>
 				</Vertical>
 
 				<Text>
-					Provides a <CodeSnippet>select</CodeSnippet> element
+					The <CodeSnippet>Select</CodeSnippet> element differs from
+					others components in this library.
+				</Text>
+				<Text>
+					Its based on the headlessui Listbox (Select) component
+				</Text>
+				<Text>
+					The{" "}
+					<span className="text-orange-500 font-mono">onChange</span>{" "}
+					function does not use an event parameter, but a value which
+					is of type string
+				</Text>
+				<Text>
+					The{" "}
+					<span className="text-orange-500 font-mono">children</span>{" "}
+					is expected to be{" "}
+					<CodeSnippet
+						attributes={[
+							{ attribute: "value", values: "some value" },
+						]}
+					>
+						option
+					</CodeSnippet>{" "}
+					elements. Currently there is no error handling, but the app
+					will break if the correct element isn't provided
+				</Text>
+				<Text>
+					You do not have to fill the{" "}
+					<CodeSnippet
+						attributes={[
+							{ attribute: "value", values: "some value" },
+						]}
+					>
+						option
+					</CodeSnippet>{" "}
+					elements with children as they're not used by the component,
+					only the value prop.
+				</Text>
+				<Text>
+					If you provide the select with an{" "}
+					<span className="text-orange-500 font-mono">leftIcon</span>{" "}
+					you have to provide the icon with a size and contained prop
 				</Text>
 			</Vertical>
 
 			<ImportSyntax componentNames={["Select"]} />
 
 			<Vertical className="w-full gap-3">
-				<Horizontal className="gap-6 w-full">
+				<Horizontal className="gap-3">
 					<Vertical className="w-full">
 						<Label
-							htmlFor="mediumInput"
+							htmlFor="select"
 							size="md"
 						>
-							Label
+							Select
 						</Label>
-						<Select>
-							<option value="test">test</option>
+						<Select
+							name="select"
+							onChange={handleSelectChange}
+						>
+							<option value="option1" />
+							<option value="option2" />
+							<option value="option3" />
 						</Select>
 					</Vertical>
 					<Vertical className="w-full">
@@ -337,15 +391,22 @@ const SelectSection = () => {
 							htmlFor="mediumInputWithIcon"
 							size="md"
 						>
-							Input with Icon
+							Select with Icon
 						</Label>
-						<Input
-							placeholder="Search"
-							name="mediumInputWithIcon"
-							size="md"
-							leftIcon={<IconSearch />}
-						/>
-						<Helper size="md">Find what you're looking for</Helper>
+						<Select
+							name="select"
+							onChange={handleSelectChange}
+							leftIcon={
+								<IconSearch
+									size={15}
+									contained
+								/>
+							}
+						>
+							<option value="option1" />
+							<option value="option2" />
+							<option value="option3" />
+						</Select>
 					</Vertical>
 				</Horizontal>
 			</Vertical>
